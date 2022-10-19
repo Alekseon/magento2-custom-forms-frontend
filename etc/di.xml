@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Alekseon\CustomFormsEmailNotification\Model\Email\EmailNotification">
+        <plugin name="Alekseon_CustomFormsFrontend::EmailNotificationPlugin" type="Alekseon\CustomFormsFrontend\Plugin\EmailNotificationPlugin"/>
+    </type>
+    <type name="Alekseon\CustomFormsEmailNotification\Model\Email\CustomerConfirmation">
+        <arguments>
+            <argument name="transportBuilder" xsi:type="object">AlekseonCustomFormsFrontendTransportBuilder</argument>
+        </arguments>
+    </type>
+    <virtualType name="AlekseonCustomFormsFrontendTransportBuilder" type="Magento\Framework\Mail\Template\TransportBuilder">
+        <arguments>
+            <argument name="templateFactory" xsi:type="object">AlekseonCustomFormsFrontendTemplateFactory</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AlekseonCustomFormsFrontendTemplateFactory" type="Magento\Framework\Mail\Template\Factory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">AlekseonCustomFormsFrontendTemplateInstance</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AlekseonCustomFormsFrontendTemplateInstance" type="Magento\Email\Model\Template">
+        <arguments>
+            <argument name="filterFactory" xsi:type="object">AlekseonCustomFormsFrontendTemplateFilterFactory</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AlekseonCustomFormsFrontendTemplateFilterFactory" type="\Magento\Email\Model\Template\FilterFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Alekseon\CustomFormsFrontend\Model\Template\Filter</argument>
+        </arguments>
+    </virtualType>
+</config>

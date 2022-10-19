@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Alekseon\WidgetForms\Controller\Form\Submit">
+        <plugin name="Alekseon_CustomFormsFrontend::WidgetFormSubmitPlugin" type="Alekseon\CustomFormsFrontend\Plugin\WidgetFormSubmitPlugin"/>
+    </type>
+    <type name="Alekseon\CustomFormsFrontend\Model\Template\Filter">
+        <plugin name="Alekseon_CustomFormsFrontend::TemplateFilterPlugin" type="Alekseon\CustomFormsFrontend\Plugin\TemplateFilterPlugin"/>
+    </type>
+    <type name="Alekseon\CustomFormsFrontend\Model\FrontendBlocksRepository">
+        <arguments>
+            <argument name="frontendBlocks" xsi:type="array">
+                <item name="text" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Text</item>
+                </item>
+                <item name="textarea" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Text</item>
+                </item>
+                <item name="select" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Select</item>
+                </item>
+                <item name="boolean" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Select</item>
+                </item>
+                <item name="multiselect" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Multiselect</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
