@@ -1,0 +1,21 @@
+{
+    "name": "alekseon/custom-forms-frontend",
+    "description": "N/A",
+    "require": {
+        "alekseon/custom-forms-builder": "^102.1.2"
+    },
+    "type": "magento2-module",
+    "version": "100.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Alekseon\\CustomFormsFrontend\\": ""
+        }
+    }
+}
