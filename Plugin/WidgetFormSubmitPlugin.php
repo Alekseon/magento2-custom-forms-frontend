@@ -32,8 +32,9 @@ class WidgetFormSubmitPlugin
 
     /**
      * @param Submit $submitAction
-     * @param $message
-     * @return mixed
+     * @param callable $proceed
+     * @param FormRecord $formRecord
+     * @return string
      */
     public function aroundGetSuccessMessage(Submit $submitAction, callable $proceed, FormRecord $formRecord)
     {
@@ -44,10 +45,11 @@ class WidgetFormSubmitPlugin
 
     /**
      * @param Submit $submitAction
-     * @param $message
-     * @return mixed
+     * @param callable $proceed
+     * @param FormRecord $formRecord
+     * @return string
      */
-    public function aroundGetFailureMessage(Submit $submitAction, callable $proceed, FormRecord $formRecord)
+    public function aroundGetSuccessTitle(Submit $submitAction, callable $proceed, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
         $message = $proceed($formRecord);

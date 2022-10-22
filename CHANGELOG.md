@@ -8,7 +8,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 ### Fixed
 ### Added
+### Removed
 
-## [Unreleased]
+## [100.0.1] - 2022-10-22
+### Added
+- aroundGetSuccessTitle plugin 
+### Removed
+- removed aroundGetFailureMessage plugin
+
+## [100.0.0] - 2022-10-22
 ### Added
 - init
