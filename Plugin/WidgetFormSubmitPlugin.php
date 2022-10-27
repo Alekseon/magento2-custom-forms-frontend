@@ -39,7 +39,7 @@ class WidgetFormSubmitPlugin
     public function aroundGetSuccessMessage(Submit $submitAction, callable $proceed, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
-        $message = $proceed($formRecord);
+        $message = (string) $proceed($formRecord);
         return $this->templateFilter->filter($message);
     }
 
@@ -52,7 +52,7 @@ class WidgetFormSubmitPlugin
     public function aroundGetSuccessTitle(Submit $submitAction, callable $proceed, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
-        $message = $proceed($formRecord);
+        $message = (string) $proceed($formRecord);
         return $this->templateFilter->filter($message);
     }
 }

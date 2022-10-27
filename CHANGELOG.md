@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.0.2] - 2022-10-27
+### Fixed
+- fix for magento 2.4
+
 ## [100.0.1] - 2022-10-22
 ### Added
 - aroundGetSuccessTitle plugin 
