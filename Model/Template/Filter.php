@@ -138,6 +138,7 @@ class Filter extends \Magento\Email\Model\Template\Filter
 
                     $block->setRecordAttribute($recordAttribute);
                     $block->setFormRecord($this->formRecord);
+                    $block->setParameters($parameters);
                 }
             }
 

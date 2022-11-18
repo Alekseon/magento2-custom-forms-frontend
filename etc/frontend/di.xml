@@ -30,6 +30,9 @@
                 <item name="multiselect" xsi:type="array">
                     <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Multiselect</item>
                 </item>
+                <item name="image" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Image</item>
+                </item>
             </argument>
         </arguments>
     </type>
