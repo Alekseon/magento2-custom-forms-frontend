@@ -49,11 +49,13 @@ class EmailNotificationPlugin
             $recordHtml = '<div class="form-record">';
             foreach ($attributes as $attribute) {
                 if ($formRecord->getData($attribute->getAttributeCode())) {
-                    $recordHtml .= '<div class="form-record-row">';
-                    $recordHtml .= '<strong>{{fieldLabel id="' . $attribute->getAttributeCode() . '" admin="1"}}</strong>';
-                    $recordHtml .= ': ';
-                    $recordHtml .= '{{fieldValue id="' . $attribute->getAttributeCode() . '" admin="1"}}';
-                    $recordHtml .= '</div>';
+                    if ($this->frontendBlocksRepository->getFrontendBlock($attribute)) {
+                        $recordHtml .= '<div class="form-record-row">';
+                        $recordHtml .= '<strong>{{fieldLabel id="' . $attribute->getAttributeCode() . '" admin="1"}}</strong>';
+                        $recordHtml .= ': ';
+                        $recordHtml .= '{{fieldValue id="' . $attribute->getAttributeCode() . '" admin="1"}}';
+                        $recordHtml .= '</div>';
+                    }
                 }
             }
             $recordHtml .= '</div>';
