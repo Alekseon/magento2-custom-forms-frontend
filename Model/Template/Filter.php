@@ -140,6 +140,10 @@ class Filter extends \Magento\Email\Model\Template\Filter
                     $block->setFormRecord($this->formRecord);
                     $block->setParameters($parameters);
                 }
+            } else {
+                $this->_logger->warning(
+                    'Missing field with ID "' . $parameters['id'] . '" in alekseon custom form with id ' .  $this->formRecord->getForm()->getId()
+                );
             }
 
             if ($block) {

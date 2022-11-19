@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - template for image field
+### Added
+- warning log when field is missing in form but used in template
 
 ## [100.0.2] - 2022-10-27
 ### Fixed
