@@ -10,7 +10,7 @@
 <br>
 <i>This is addon to <a href="https://github.com/Alekseon/magento2-custom-forms-builder">Alekseon_CustomFormsBuilder</a> module.</i>
 <br>
-<i>It is also a part of <a href="https://github.com/Alekseon/magento2-widget-forms">Alekseon_WidgetForms</a>.</i>
+<i>It is also a part of <a href="https://github.com/Alekseon/magento2-widget-forms">Alekseon_WidgetForms</a> module.</i>
 <br>
 </p>
 <p>
