@@ -19,6 +19,6 @@ This module is responsible for presenting custom forms data on frontend.
 More in wiki:
 <br>
 <ul>
-<li>https://github.com/Alekseon/magento2-widget-forms/wiki</li>
+<li><a href="https://github.com/Alekseon/magento2-widget-forms/wiki">Widget Forms</a></li>
 </ul>
 </p>
