@@ -41,7 +41,7 @@ class Image extends \Magento\Backend\Block\Template
         $this->imageHelper->init($this->getFormRecord(), $this->getRecordAttribute()->getAttributeCode());
         $parameters = $this->getParameters();
 
-        if (isset($parameters['width']) || $parameters['height']) {
+        if (isset($parameters['width']) || isset($parameters['height'])) {
             if (isset($parameters['width'])) {
                 $width = (int)$parameters['width'];
                 $this->imageHelper->setWidth($width);
