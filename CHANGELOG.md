@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - fix for Exception: Warning: Undefined array key "height"
+- plugin for alekseon/custom-forms-email-notification in version 100.2.0 and above
 
 ## [100.0.3] - 2022-11-19
 ### Added
