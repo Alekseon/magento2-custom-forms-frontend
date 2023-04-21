@@ -10,6 +10,21 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [Unreleased]
+
+## [100.0.4] - 2023-04-23
+### Fixed
+- fix for Exception: Warning: Undefined array key "height"
+- plugin for alekseon/custom-forms-email-notification in version 100.2.0 and above
+- moved frontendBlocks to global area to be used in emails
+- frontendblock for rating field
+
+## [100.0.3] - 2022-11-19
+### Added
+- template for image field
+### Added
+- warning log when field is missing in form but used in template
+
 ## [100.0.2] - 2022-10-27
 ### Fixed
 - fix for magento 2.4

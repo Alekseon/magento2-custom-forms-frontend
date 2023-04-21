@@ -5,6 +5,7 @@
  */
 namespace Alekseon\CustomFormsFrontend\Plugin;
 
+use Alekseon\CustomFormsEmailNotification\Model\Email\EmailNotification;
 use Alekseon\CustomFormsFrontend\Model\FrontendBlocksRepository;
 use Alekseon\CustomFormsFrontend\Model\Template\Filter;
 
@@ -37,11 +38,33 @@ class EmailNotificationPlugin
     }
 
     /**
+     * This is plugin for alekseon/custom-forms-email-notification in version below 100.2.0
      * @param $emailNotification
      * @param array $templateParams
      * @return array[]
      */
-    public function beforeSendNotificationEmail($emailNotification, array $templateParams = [])
+    public function beforeSendNotificationEmail(EmailNotification $emailNotification, array $templateParams = [])
+    {
+        $templateParams = $this->getTemplateParamsWithRecordHtml($templateParams);
+        return [$templateParams];
+    }
+
+    /**
+     * This is plugin for alekseon/custom-forms-email-notification in version 100.2.0 and above
+     * @param EmailNotification $emailNotification
+     * @param $templateParams
+     * @return mixed
+     */
+    public function afterGetTemplateParams(EmailNotification $emailNotification, $templateParams)
+    {
+        return $this->getTemplateParamsWithRecordHtml($templateParams);
+    }
+
+    /**
+     * @param array $templateParams
+     * @return array
+     */
+    protected function getTemplateParamsWithRecordHtml($templateParams = [])
     {
         if (isset($templateParams['record'])) {
             $formRecord = $templateParams['record'];
@@ -49,11 +72,13 @@ class EmailNotificationPlugin
             $recordHtml = '<div class="form-record">';
             foreach ($attributes as $attribute) {
                 if ($formRecord->getData($attribute->getAttributeCode())) {
-                    $recordHtml .= '<div class="form-record-row">';
-                    $recordHtml .= '<strong>{{fieldLabel id="' . $attribute->getAttributeCode() . '" admin="1"}}</strong>';
-                    $recordHtml .= ': ';
-                    $recordHtml .= '{{fieldValue id="' . $attribute->getAttributeCode() . '" admin="1"}}';
-                    $recordHtml .= '</div>';
+                    if ($this->frontendBlocksRepository->getFrontendBlock($attribute)) {
+                        $recordHtml .= '<div class="form-record-row">';
+                        $recordHtml .= '<strong>{{fieldLabel id="' . $attribute->getAttributeCode() . '" admin="1"}}</strong>';
+                        $recordHtml .= ': ';
+                        $recordHtml .= '{{fieldValue id="' . $attribute->getAttributeCode() . '" admin="1"}}';
+                        $recordHtml .= '</div>';
+                    }
                 }
             }
             $recordHtml .= '</div>';
@@ -61,7 +86,6 @@ class EmailNotificationPlugin
             $this->templateFilter->setFormRecord($formRecord);
             $templateParams['recordHtml'] = $this->templateFilter->filter($recordHtml);
         }
-
-        return [$templateParams];
+        return $templateParams;
     }
 }

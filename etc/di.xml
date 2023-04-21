@@ -9,7 +9,7 @@
     <type name="Alekseon\CustomFormsEmailNotification\Model\Email\EmailNotification">
         <plugin name="Alekseon_CustomFormsFrontend::EmailNotificationPlugin" type="Alekseon\CustomFormsFrontend\Plugin\EmailNotificationPlugin"/>
     </type>
-    <type name="Alekseon\CustomFormsEmailNotification\Model\Email\CustomerConfirmation">
+    <type name="Alekseon\CustomFormsEmailNotification\Model\Email\AbstractSender">
         <arguments>
             <argument name="transportBuilder" xsi:type="object">AlekseonCustomFormsFrontendTransportBuilder</argument>
         </arguments>
@@ -34,4 +34,35 @@
             <argument name="instanceName" xsi:type="string">Alekseon\CustomFormsFrontend\Model\Template\Filter</argument>
         </arguments>
     </virtualType>
+    <type name="Alekseon\CustomFormsFrontend\Model\Template\Filter">
+        <plugin name="Alekseon_CustomFormsFrontend::TemplateFilterPlugin" type="Alekseon\CustomFormsFrontend\Plugin\TemplateFilterPlugin"/>
+    </type>
+    <type name="Alekseon\CustomFormsFrontend\Model\FrontendBlocksRepository">
+        <arguments>
+            <argument name="frontendBlocks" xsi:type="array">
+                <item name="text" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Text</item>
+                </item>
+                <item name="textarea" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Text</item>
+                </item>
+                <item name="select" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Select</item>
+                </item>
+                <item name="boolean" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Select</item>
+                </item>
+                <item name="multiselect" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Multiselect</item>
+                </item>
+                <item name="image" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Image</item>
+                </item>
+                <item name="rating" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Text</item>
+                    <item name="template" xsi:type="string">Alekseon_CustomFormsFrontend::field/rating.phtml</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>

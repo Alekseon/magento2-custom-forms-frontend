@@ -16,7 +16,10 @@ class Multiselect extends \Alekseon\CustomFormsFrontend\Block\Field\Select
      */
     public function getValue()
     {
-        $value = explode(',', Text::getValue());
+        $value = Text::getValue();
+        if (!is_array($value)) {
+            $value = explode(',', $value);
+        }
         $options = $this->getOptions();
         $valueLabels = [];
         foreach ($value as $optionId) {

@@ -17,7 +17,7 @@ class Text extends \Magento\Backend\Block\Template
     protected $_template = 'Alekseon_CustomFormsFrontend::field/text.phtml';
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getValue()
     {
