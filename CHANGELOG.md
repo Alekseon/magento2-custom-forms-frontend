@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 
 ## [Unreleased]
+### Added
+- github action
+- introduced strict_types
 
 ## [100.0.4] - 2023-04-23
 ### Fixed
