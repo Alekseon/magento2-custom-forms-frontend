@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace Alekseon\CustomFormsFrontend\Plugin;
 
 use Alekseon\CustomFormsBuilder\Model\FormRecord;
-use Alekseon\WidgetForms\Controller\Form\Submit;
+use Magento\Framework\App\ActionInterface;
 
 /**
  * Class WidgetFormSubmitPlugin
@@ -33,26 +33,26 @@ class WidgetFormSubmitPlugin
     }
 
     /**
-     * @param Submit $submitAction
+     * @param ActionInterface $submitAction
      * @param $message
      * @param FormRecord $formRecord
      * @return string
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function afterGetSuccessMessage(Submit $submitAction, $message, FormRecord $formRecord)
+    public function afterGetSuccessMessage(ActionInterface $submitAction, $message, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
         return $this->templateFilter->filter($message);
     }
 
     /**
-     * @param Submit $submitAction
+     * @param ActionInterface $submitAction
      * @param $title
      * @param FormRecord $formRecord
      * @return string
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function afterGetSuccessTitle(Submit $submitAction, $title, FormRecord $formRecord)
+    public function afterGetSuccessTitle(ActionInterface $submitAction, $title, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
         return $this->templateFilter->filter($title);
