@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.0.6] - 2023-05-06
+### Fixed
+- fixed error: explode(): Passing null to parameter
+
 ## [100.0.5] - 2023-05-06
 ### Added
 - code quality improvements
