@@ -37,6 +37,7 @@ class WidgetFormSubmitPlugin
      * @param $message
      * @param FormRecord $formRecord
      * @return string
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterGetSuccessMessage(Submit $submitAction, $message, FormRecord $formRecord)
     {
@@ -49,6 +50,7 @@ class WidgetFormSubmitPlugin
      * @param $title
      * @param FormRecord $formRecord
      * @return string
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterGetSuccessTitle(Submit $submitAction, $title, FormRecord $formRecord)
     {

@@ -44,6 +44,7 @@ class EmailNotificationPlugin
      * @param $emailNotification
      * @param array $templateParams
      * @return array[]
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function beforeSendNotificationEmail(EmailNotification $emailNotification, array $templateParams = [])
     {
@@ -56,6 +57,7 @@ class EmailNotificationPlugin
      * @param EmailNotification $emailNotification
      * @param $templateParams
      * @return mixed
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterGetTemplateParams(EmailNotification $emailNotification, $templateParams)
     {

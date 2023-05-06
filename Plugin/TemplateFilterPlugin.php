@@ -35,6 +35,7 @@ class TemplateFilterPlugin
     /**
      * @param Filter $templateFilter
      * @return FrontendBlocksRepository
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterGetFrontendBlockRepository(Filter $templateFilter)
     {
