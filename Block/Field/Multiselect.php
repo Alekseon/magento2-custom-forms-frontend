@@ -20,7 +20,7 @@ class Multiselect extends \Alekseon\CustomFormsFrontend\Block\Field\Select
     {
         $value = Text::getValue();
         if (!is_array($value)) {
-            $value = explode(',', $value);
+            $value = explode(',', (string) $value);
         }
         $options = $this->getOptions();
         $valueLabels = [];
