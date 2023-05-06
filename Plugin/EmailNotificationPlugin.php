@@ -3,6 +3,8 @@
  * Copyright © Alekseon sp. z o.o.
  * http://www.alekseon.com/
  */
+declare(strict_types=1);
+
 namespace Alekseon\CustomFormsFrontend\Plugin;
 
 use Alekseon\CustomFormsEmailNotification\Model\Email\EmailNotification;
@@ -18,11 +20,11 @@ class EmailNotificationPlugin
     /**
      * @var FrontendBlocksRepository
      */
-    protected $frontendBlocksRepository;
+    private $frontendBlocksRepository;
     /**
      * @var Filter
      */
-    protected $templateFilter;
+    private $templateFilter;
 
     /**
      * TemplateFilterPlugin constructor.
@@ -42,6 +44,7 @@ class EmailNotificationPlugin
      * @param $emailNotification
      * @param array $templateParams
      * @return array[]
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function beforeSendNotificationEmail(EmailNotification $emailNotification, array $templateParams = [])
     {
@@ -54,6 +57,7 @@ class EmailNotificationPlugin
      * @param EmailNotification $emailNotification
      * @param $templateParams
      * @return mixed
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterGetTemplateParams(EmailNotification $emailNotification, $templateParams)
     {
@@ -64,7 +68,7 @@ class EmailNotificationPlugin
      * @param array $templateParams
      * @return array
      */
-    protected function getTemplateParamsWithRecordHtml($templateParams = [])
+    private function getTemplateParamsWithRecordHtml($templateParams = [])
     {
         if (isset($templateParams['record'])) {
             $formRecord = $templateParams['record'];

@@ -3,6 +3,8 @@
  * Copyright © Alekseon sp. z o.o.
  * http://www.alekseon.com/
  */
+declare(strict_types=1);
+
 namespace Alekseon\CustomFormsFrontend\Plugin;
 
 use Alekseon\CustomFormsFrontend\Model\FrontendBlocksRepository;
@@ -17,7 +19,7 @@ class TemplateFilterPlugin
     /**
      * @var FrontendBlocksRepository
      */
-    protected $frontendBlocksRepository;
+    private $frontendBlocksRepository;
 
     /**
      * TemplateFilterPlugin constructor.
@@ -33,6 +35,7 @@ class TemplateFilterPlugin
     /**
      * @param Filter $templateFilter
      * @return FrontendBlocksRepository
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterGetFrontendBlockRepository(Filter $templateFilter)
     {

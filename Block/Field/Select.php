@@ -3,6 +3,8 @@
  * Copyright © Alekseon sp. z o.o.
  * http://www.alekseon.com/
  */
+declare(strict_types=1);
+
 namespace Alekseon\CustomFormsFrontend\Block\Field;
 
 /**
@@ -14,7 +16,7 @@ class Select extends \Alekseon\CustomFormsFrontend\Block\Field\Text
     /**
      *
      */
-    protected function getOptions()
+    public function getOptions()
     {
         $sourceModel = $this->getRecordAttribute()->getSourceModel();
         $sourceModel->setStoreId($this->getStoreId());

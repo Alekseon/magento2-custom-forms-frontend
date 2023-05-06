@@ -3,6 +3,8 @@
  * Copyright © Alekseon sp. z o.o.
  * http://www.alekseon.com/
  */
+declare(strict_types=1);
+
 namespace Alekseon\CustomFormsFrontend\Model;
 
 use Alekseon\CustomFormsBuilder\Model\FormRecord;
@@ -16,7 +18,7 @@ class FrontendBlocksRepository
     /**
      * @var array
      */
-    protected $frontendBlocks;
+    private $frontendBlocks;
 
     /**
      * FrontendBlocksRepository constructor.

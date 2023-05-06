@@ -3,10 +3,12 @@
  * Copyright © Alekseon sp. z o.o.
  * http://www.alekseon.com/
  */
+declare(strict_types=1);
+
 namespace Alekseon\CustomFormsFrontend\Plugin;
 
 use Alekseon\CustomFormsBuilder\Model\FormRecord;
-use Alekseon\WidgetForms\Controller\Form\Submit;
+use Magento\Framework\App\ActionInterface;
 
 /**
  * Class WidgetFormSubmitPlugin
@@ -17,7 +19,7 @@ class WidgetFormSubmitPlugin
     /**
      * @var \Alekseon\CustomFormsFrontend\Model\Template\Filter
      */
-    protected $templateFilter;
+    private $templateFilter;
 
     /**
      * WidgetFormSubmitPlugin constructor.
@@ -31,28 +33,28 @@ class WidgetFormSubmitPlugin
     }
 
     /**
-     * @param Submit $submitAction
-     * @param callable $proceed
+     * @param ActionInterface $submitAction
+     * @param $message
      * @param FormRecord $formRecord
      * @return string
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function aroundGetSuccessMessage(Submit $submitAction, callable $proceed, FormRecord $formRecord)
+    public function afterGetSuccessMessage(ActionInterface $submitAction, $message, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
-        $message = (string) $proceed($formRecord);
         return $this->templateFilter->filter($message);
     }
 
     /**
-     * @param Submit $submitAction
-     * @param callable $proceed
+     * @param ActionInterface $submitAction
+     * @param $title
      * @param FormRecord $formRecord
      * @return string
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function aroundGetSuccessTitle(Submit $submitAction, callable $proceed, FormRecord $formRecord)
+    public function afterGetSuccessTitle(ActionInterface $submitAction, $title, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
-        $message = (string) $proceed($formRecord);
-        return $this->templateFilter->filter($message);
+        return $this->templateFilter->filter($title);
     }
 }

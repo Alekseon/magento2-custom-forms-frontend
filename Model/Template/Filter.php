@@ -3,6 +3,8 @@
  * Copyright © Alekseon sp. z o.o.
  * http://www.alekseon.com/
  */
+declare(strict_types=1);
+
 namespace Alekseon\CustomFormsFrontend\Model\Template;
 
 use Alekseon\CustomFormsBuilder\Model\FormRecord;
@@ -16,11 +18,11 @@ class Filter extends \Magento\Email\Model\Template\Filter
     /**
      * @var
      */
-    protected $formRecord;
+    private $formRecord;
     /**
      * @var array
      */
-    protected $formRecordsAttributes = [];
+    private $formRecordsAttributes = [];
 
     /**
      * @param array $variables
@@ -65,6 +67,7 @@ class Filter extends \Magento\Email\Model\Template\Filter
 
     /**
      * @param $construction
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function formTitleDirective($construction)
     {
@@ -114,50 +117,59 @@ class Filter extends \Magento\Email\Model\Template\Filter
             return '';
         }
 
-        $block = false;
+        $fieldValue = '';
         $parameters = $this->getParameters($construction[2]);
         if (isset($parameters['id'])) {
             $recordAttribute = $this->getRecordAttribute($parameters['id']);
 
             if ($recordAttribute) {
-                $frontendBlock = $this->getFrontendBlockRepository()->getFrontendBlock($recordAttribute);
-                if ($frontendBlock) {
-                    $blockName = $recordAttribute->getAttributeCode();
-                    $block = $this->_layout->getBlock($blockName);
-                    if (!$block) {
-                        $block = $this->_layout->createBlock($frontendBlock['class'], $blockName, $frontendBlock);
-                    }
-                    if (isset($frontendBlock['template'])) {
-                        $block->setTemplate($frontendBlock['template']);
-                    }
-                    if (isset($parameters['admin'])) {
-                        $block->setStoreId(0);
-                    } else {
-                        $block->setStoreId($this->getStoreId());
-                    }
-
-                    $block->setRecordAttribute($recordAttribute);
-                    $block->setFormRecord($this->formRecord);
-                    $block->setParameters($parameters);
+                $block = $this->getAttributeFrontendBlock($recordAttribute);
+                if (isset($parameters['admin'])) {
+                    $block->setStoreId(0);
+                } else {
+                    $block->setStoreId($this->getStoreId());
                 }
+
+                $block->setFormRecord($this->formRecord);
+                $block->setParameters($parameters);
+                $fieldValue = $block->toHtml();
             } else {
                 $this->_logger->warning(
                     'Missing field with ID "' . $parameters['id'] . '" in alekseon custom form with id ' .  $this->formRecord->getForm()->getId()
                 );
             }
-
-            if ($block) {
-                return $block->toHtml();
-            }
-
-            return '';
         }
+
+        return $fieldValue;
+    }
+
+    /**
+     * @param $attribute
+     * @return bool|\Magento\Framework\View\Element\BlockInterface
+     */
+    private function getAttributeFrontendBlock($attribute)
+    {
+        $frontendBlock = $this->getFrontendBlockRepository()->getFrontendBlock($attribute);
+        if ($frontendBlock) {
+            $blockName = $attribute->getAttributeCode();
+            $block = $this->_layout->getBlock($blockName);
+            if (!$block) {
+                $block = $this->_layout->createBlock($frontendBlock['class'], $blockName, $frontendBlock);
+            }
+            if (isset($frontendBlock['template'])) {
+                $block->setTemplate($frontendBlock['template']);
+            }
+            $block->setRecordAttribute($attribute);
+            return $block;
+        }
+
+        return false;
     }
 
     /**
      * @param $id
      */
-    protected function getRecordAttribute($id)
+    private function getRecordAttribute($id)
     {
         if (isset($this->formRecordsAttributes[$id])) {
             $fieldId = $id;
