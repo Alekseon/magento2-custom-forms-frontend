@@ -18,11 +18,11 @@ class Filter extends \Magento\Email\Model\Template\Filter
     /**
      * @var
      */
-    protected $formRecord;
+    private $formRecord;
     /**
      * @var array
      */
-    protected $formRecordsAttributes = [];
+    private $formRecordsAttributes = [];
 
     /**
      * @param array $variables
@@ -159,7 +159,7 @@ class Filter extends \Magento\Email\Model\Template\Filter
     /**
      * @param $id
      */
-    protected function getRecordAttribute($id)
+    private function getRecordAttribute($id)
     {
         if (isset($this->formRecordsAttributes[$id])) {
             $fieldId = $id;

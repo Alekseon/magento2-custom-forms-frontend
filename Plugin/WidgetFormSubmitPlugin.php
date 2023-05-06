@@ -19,7 +19,7 @@ class WidgetFormSubmitPlugin
     /**
      * @var \Alekseon\CustomFormsFrontend\Model\Template\Filter
      */
-    protected $templateFilter;
+    private $templateFilter;
 
     /**
      * WidgetFormSubmitPlugin constructor.

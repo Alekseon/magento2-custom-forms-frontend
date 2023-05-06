@@ -18,7 +18,7 @@ class FrontendBlocksRepository
     /**
      * @var array
      */
-    protected $frontendBlocks;
+    private $frontendBlocks;
 
     /**
      * FrontendBlocksRepository constructor.

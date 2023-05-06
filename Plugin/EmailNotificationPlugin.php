@@ -20,11 +20,11 @@ class EmailNotificationPlugin
     /**
      * @var FrontendBlocksRepository
      */
-    protected $frontendBlocksRepository;
+    private $frontendBlocksRepository;
     /**
      * @var Filter
      */
-    protected $templateFilter;
+    private $templateFilter;
 
     /**
      * TemplateFilterPlugin constructor.
@@ -66,7 +66,7 @@ class EmailNotificationPlugin
      * @param array $templateParams
      * @return array
      */
-    protected function getTemplateParamsWithRecordHtml($templateParams = [])
+    private function getTemplateParamsWithRecordHtml($templateParams = [])
     {
         if (isset($templateParams['record'])) {
             $formRecord = $templateParams['record'];

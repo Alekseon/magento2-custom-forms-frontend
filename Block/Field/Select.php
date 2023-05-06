@@ -16,7 +16,7 @@ class Select extends \Alekseon\CustomFormsFrontend\Block\Field\Text
     /**
      *
      */
-    protected function getOptions()
+    public function getOptions()
     {
         $sourceModel = $this->getRecordAttribute()->getSourceModel();
         $sourceModel->setStoreId($this->getStoreId());

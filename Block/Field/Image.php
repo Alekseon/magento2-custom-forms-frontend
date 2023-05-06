@@ -20,7 +20,7 @@ class Image extends \Magento\Backend\Block\Template
     /**
      * @var \Alekseon\AlekseonEav\Helper\Image
      */
-    protected $imageHelper;
+    private $imageHelper;
 
     /**
      * Image constructor.

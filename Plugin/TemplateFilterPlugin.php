@@ -19,7 +19,7 @@ class TemplateFilterPlugin
     /**
      * @var FrontendBlocksRepository
      */
-    protected $frontendBlocksRepository;
+    private $frontendBlocksRepository;
 
     /**
      * TemplateFilterPlugin constructor.
