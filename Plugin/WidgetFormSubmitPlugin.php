@@ -34,27 +34,25 @@ class WidgetFormSubmitPlugin
 
     /**
      * @param Submit $submitAction
-     * @param callable $proceed
+     * @param $message
      * @param FormRecord $formRecord
      * @return string
      */
-    public function aroundGetSuccessMessage(Submit $submitAction, callable $proceed, FormRecord $formRecord)
+    public function afterGetSuccessMessage(Submit $submitAction, $message, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
-        $message = (string) $proceed($formRecord);
         return $this->templateFilter->filter($message);
     }
 
     /**
      * @param Submit $submitAction
-     * @param callable $proceed
+     * @param $title
      * @param FormRecord $formRecord
      * @return string
      */
-    public function aroundGetSuccessTitle(Submit $submitAction, callable $proceed, FormRecord $formRecord)
+    public function afterGetSuccessTitle(Submit $submitAction, $title, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
-        $message = (string) $proceed($formRecord);
-        return $this->templateFilter->filter($message);
+        return $this->templateFilter->filter($title);
     }
 }
