@@ -124,6 +124,13 @@ class Filter extends \Magento\Email\Model\Template\Filter
 
             if ($recordAttribute) {
                 $block = $this->getAttributeFrontendBlock($recordAttribute);
+                if (isset($parameters['admin'])) {
+                    $block->setStoreId(0);
+                } else {
+                    $block->setStoreId($this->getStoreId());
+                }
+
+                $block->setFormRecord($this->formRecord);
                 $block->setParameters($parameters);
                 $fieldValue = $block->toHtml();
             } else {
@@ -152,14 +159,7 @@ class Filter extends \Magento\Email\Model\Template\Filter
             if (isset($frontendBlock['template'])) {
                 $block->setTemplate($frontendBlock['template']);
             }
-            if (isset($parameters['admin'])) {
-                $block->setStoreId(0);
-            } else {
-                $block->setStoreId($this->getStoreId());
-            }
-
             $block->setRecordAttribute($attribute);
-            $block->setFormRecord($this->formRecord);
             return $block;
         }
 
