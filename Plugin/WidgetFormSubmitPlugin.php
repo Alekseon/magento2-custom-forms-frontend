@@ -34,12 +34,12 @@ class WidgetFormSubmitPlugin
 
     /**
      * @param ActionInterface $submitAction
-     * @param $message
+     * @param string $message
      * @param FormRecord $formRecord
      * @return string
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function afterGetSuccessMessage(ActionInterface $submitAction, $message, FormRecord $formRecord)
+    public function afterGetSuccessMessage(ActionInterface $submitAction, string $message, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
         return $this->templateFilter->filter($message);
@@ -47,12 +47,12 @@ class WidgetFormSubmitPlugin
 
     /**
      * @param ActionInterface $submitAction
-     * @param $title
+     * @param string $title
      * @param FormRecord $formRecord
      * @return string
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function afterGetSuccessTitle(ActionInterface $submitAction, $title, FormRecord $formRecord)
+    public function afterGetSuccessTitle(ActionInterface $submitAction, string $title, FormRecord $formRecord)
     {
         $this->templateFilter->setFormRecord($formRecord);
         return $this->templateFilter->filter($title);

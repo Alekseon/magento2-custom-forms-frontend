@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.0.7] - 2023-05-15
+### Fixed
+- fix for invalid argument type error (https://github.com/Alekseon/magento2-widget-forms/issues/18)
+
 ## [100.0.6] - 2023-05-06
 ### Fixed
 - fixed error: explode(): Passing null to parameter
