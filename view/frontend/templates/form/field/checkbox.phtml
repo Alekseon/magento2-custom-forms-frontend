@@ -9,9 +9,6 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<?php if ($block->displayLabel()): ?>
-    <label class="label" for="<?= $escaper->escapeHtmlAttr($block->getId()) ?>"><?= $escaper->escapeHtml($block->getLabel()) ?></label>
-<?php endif ?>
 <div class="control checkbox-container">
     <?php foreach ($block->getOptions() as $optionId => $optionLabel): ?>
         <input

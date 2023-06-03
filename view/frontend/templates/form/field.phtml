@@ -6,6 +6,10 @@
 
 /**
  * @var $block \Alekseon\CustomFormsFrontend\Block\Form\Field
+ * @var $escaper \Magento\Framework\Escaper
  */
 ?>
+<?php if ($block->getInputBlock() && $block->getInputBlock()->displayLabel()): ?>
+    <label class="label" for="<?= $escaper->escapeHtmlAttr($block->getInputBlock()->getId()) ?>"><?= $escaper->escapeHtml($block->getInputBlock()->getLabel()) ?></label>
+<?php endif ?>
 <?= $block->getChildHtml('field_input') ?>

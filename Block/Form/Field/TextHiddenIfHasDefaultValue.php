@@ -24,4 +24,15 @@ class TextHiddenIfHasDefaultValue extends \Alekseon\CustomFormsFrontend\Block\Fo
             return parent::getTemplate();
         }
     }
+
+    /**
+     * @return bool
+     */
+    public function isVisible()
+    {
+        if ($this->getField()->hasDefaultValue()) {
+            return false;
+        }
+        return parent::isVisible();
+    }
 }

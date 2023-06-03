@@ -7,6 +7,11 @@ declare(strict_types=1);
 
 namespace Alekseon\CustomFormsFrontend\Block\Form;
 
+use Alekseon\AlekseonEav\Api\Data\AttributeInterface;
+use Alekseon\AlekseonEav\Model\AttributeRepository;
+use Alekseon\CustomFormsFrontend\Block\Form\Field\AbstractField;
+use Magento\Framework\View\Element\AbstractBlock;
+
 /**
  *
  */
@@ -15,11 +20,32 @@ class Field extends \Magento\Framework\View\Element\Template
     protected $_template = "Alekseon_CustomFormsFrontend::form/field.phtml";
 
     /**
-     * @return false|void
+     * @param AttributeInterface $attribute
+     * @return Field
      */
-    private function addFieldInput()
+    public function setFormAttribute(AttributeInterface $attribute)
     {
-        $attribute = $this->getAttribute();
+        return $this->setData('attribute', $attribute);
+    }
+
+    /**
+     * @return AttributeInterface
+     */
+    public function getFormAttribute()
+    {
+        return $this->getData('attribute');
+    }
+
+    /**
+     * @return AbstractBlock|false
+     */
+    private function addInputBlock()
+    {
+        $attribute = $this->getFormAttribute();
+        if (!$attribute instanceof AttributeInterface) {
+            return false;
+        }
+
         $frontendInputTypeConfig = $attribute->getFrontendInputTypeConfig();
         if (!$frontendInputTypeConfig) {
             return false;
@@ -40,15 +66,45 @@ class Field extends \Magento\Framework\View\Element\Template
             $class = $frontendBlock['class'];
             unset($frontendBlock['class']);
             $frontendBlock['field'] = $attribute;
-            $frontendBlock['form'] = $attribute->getForm();
             $frontendBlock['is_required'] = $attribute->getIsRequired();
+            $frontendBlock['id'] = $this->getFieldId();
+            $frontendBlock['label'] = $attribute->getFrontendLabel();
+            $frontendBlock['name'] = $attribute->getAttributeCode();
 
-            $this->addChild(
+            return $this->addChild(
                 'field_input',
                 $class,
                 $frontendBlock
             );
         }
+
+        return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFieldId()
+    {
+        $fieldId = $this->getData('field_id');
+        if ($fieldId === null) {
+            $attribute = $this->getAttribute();
+            $fieldId = 'form_field_';
+            if ($attribute->getForm()) {
+                $fieldId .= $attribute->getForm()->getId();
+            }
+            $fieldId .= '_' . $attribute->getAttributeCode();
+            $this->setData('field_id', $fieldId);
+        }
+        return $fieldId;
+    }
+
+    /**
+     * @return AbstractField|null
+     */
+    public function getInputBlock()
+    {
+        return $this->getData('input_block');
     }
 
     /**
@@ -56,7 +112,10 @@ class Field extends \Magento\Framework\View\Element\Template
      */
     protected function _toHtml()
     {
-        $this->addFieldInput();
+        $inputBlock = $this->addInputBlock();
+        if ($inputBlock) {
+            $this->setData('input_block', $inputBlock);
+        }
         return parent::_toHtml();
     }
 }

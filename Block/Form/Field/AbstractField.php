@@ -27,7 +27,7 @@ class AbstractField extends \Magento\Framework\View\Element\Template
      */
     public function isRequired()
     {
-        return (bool) $this->getField()->getIsRequired();
+        return (bool) $this->getData('is_required');
     }
 
     /**
@@ -35,7 +35,7 @@ class AbstractField extends \Magento\Framework\View\Element\Template
      */
     public function getLabel()
     {
-        return $this->getField()->getFrontendLabel();
+        return $this->getData('label');
     }
 
     /**
@@ -43,15 +43,28 @@ class AbstractField extends \Magento\Framework\View\Element\Template
      */
     public function getName()
     {
-        return $this->getField()->getAttributeCode();
+        return $this->getData('name');
+    }
+
+    public function getId()
+    {
+        return $this->getData('id');
     }
 
     /**
-     * @return string
+     * @return true
      */
-    public function getId()
+    public function displayLabel()
     {
-        return 'form_field' . $this->getForm()->getId() . '_' . $this->getField()->getAttributeCode();
+        return $this->isVisible() && $this->getLabel();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isVisible()
+    {
+        return true;
     }
 
     /**
