@@ -9,7 +9,7 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<div class="control">
+<div class="control <?= $block->getContainerClass() ?>">
     <div class="field choice review-field-rating">
         <div class="control review-control-vote">
             <?php for ($i=6; $i>0; $i --): ?>

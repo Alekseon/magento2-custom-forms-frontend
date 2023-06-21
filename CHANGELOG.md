@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.1.0] - 2023-06-21
+### Changed
+- frontend inputs moved from Alekseon_WidgetForms to Alekseon_CustonFormsFrontend
+- form label moved to separated template
+### Added
+- container classes for div elements 
+
 ## [100.0.7] - 2023-05-15
 ### Fixed
 - fix for invalid argument type error (https://github.com/Alekseon/magento2-widget-forms/issues/18)

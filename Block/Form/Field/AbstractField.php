@@ -103,6 +103,22 @@ class AbstractField extends \Magento\Framework\View\Element\Template
     }
 
     /**
+     * @return string
+     */
+    public function getContainerClass()
+    {
+        $container = $this->getField()->getAttributeExtraParam('frontend_input_block');
+        if (!$container || $container == 'default') {
+            $container = $this->getField()->getFrontendInput();
+        }
+        $containerClass = $container . '-container';
+        if ($this->getField()->getIdentifier()) {
+            $containerClass .= ' ' . $this->getField()->getIdentifier() . '-field-container';
+        }
+        return $containerClass;
+    }
+
+    /**
      *
      */
     public function getDataValidateJson()

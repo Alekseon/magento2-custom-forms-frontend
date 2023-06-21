@@ -9,7 +9,7 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<div class="control">
+<div class="control <?= $block->getContainerClass() ?>">
     <input
         name="<?= $escaper->escapeHtmlAttr($block->getName()) ?>"
         id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>"

@@ -88,7 +88,7 @@ class Field extends \Magento\Framework\View\Element\Template
     {
         $fieldId = $this->getData('field_id');
         if ($fieldId === null) {
-            $attribute = $this->getAttribute();
+            $attribute = $this->getFormAttribute();
             $fieldId = 'form_field_';
             if ($attribute->getForm()) {
                 $fieldId .= $attribute->getForm()->getId();

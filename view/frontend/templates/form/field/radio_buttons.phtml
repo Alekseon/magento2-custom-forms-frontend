@@ -9,7 +9,7 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<div class="control radio-container">
+<div class="control <?= $block->getContainerClass() ?>">
     <?php foreach ($block->getOptions() as $optionId => $optionLabel): ?>
         <input
             type="radio"
