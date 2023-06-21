@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+
+/**
+ * @var $block \Alekseon\CustomFormsFrontend\Block\Form\Field\Image
+ * @var $escaper \Magento\Framework\Escaper
+ */
+?>
+<div class="control <?= $block->getContainerClass() ?>">
+    <input
+        name="<?= $escaper->escapeHtmlAttr($block->getName()) ?>"
+        id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>"
+        title="<?= $escaper->escapeHtmlAttr($block->getLabel()) ?>"
+        type="file"
+        placeholder="<?= $escaper->escapeHtmlAttr($block->getPlaceholder()) ?>"
+        data-validate=<?= $block->getDataValidateJson() ?>
+    />
+</div>
+<?php if ($note = $block->getNote()): ?>
+    <p id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>_note" class="note"><?= $escaper->escapeHtml($note) ?></p>
+<?php endif ?>
