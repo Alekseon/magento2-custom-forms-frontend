@@ -20,7 +20,9 @@
                 <?php if ($block->isSelected($optionId)): ?>checked<?php endif ?>
                 data-validate=<?= $block->getDataValidateJson() ?>
             >
-                <label for="<?= $escaper->escapeHtmlAttr($block->getId() . '-option-' . $optionId) ?>"><?= $escaper->escapeHtml($optionLabel) ?></label>
+                <label for="<?= $escaper->escapeHtmlAttr($block->getId() . '-option-' . $optionId) ?>">
+                    <?= $escaper->escapeHtml($optionLabel, $block->getLabelAllowedTags()) ?>
+                </label>
             </input>
         </div>
     <?php endforeach; ?>
