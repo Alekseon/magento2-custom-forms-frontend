@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace Alekseon\CustomFormsFrontend\Block\Form;
 
 use Alekseon\AlekseonEav\Api\Data\AttributeInterface;
-use Alekseon\AlekseonEav\Model\AttributeRepository;
 use Alekseon\CustomFormsFrontend\Block\Form\Field\AbstractField;
 use Magento\Framework\View\Element\AbstractBlock;
 

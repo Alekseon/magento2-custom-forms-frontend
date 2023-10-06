@@ -10,6 +10,8 @@
  */
 ?>
 <?php if ($block->getInputBlock() && $block->getInputBlock()->displayLabel()): ?>
-    <label class="label" for="<?= $escaper->escapeHtmlAttr($block->getInputBlock()->getId()) ?>"><?= $escaper->escapeHtml($block->getInputBlock()->getLabel()) ?></label>
+    <label class="label" for="<?= $escaper->escapeHtmlAttr($block->getInputBlock()->getId()) ?>">
+        <?= $escaper->escapeHtml($block->getInputBlock()->getLabel(), $block->getInputBlock()->getLabelAllowedTags()) ?>
+    </label>
 <?php endif ?>
 <?= $block->getChildHtml('field_input') ?>
