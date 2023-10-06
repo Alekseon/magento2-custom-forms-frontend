@@ -11,7 +11,7 @@ namespace Alekseon\CustomFormsFrontend\Block\Form\Field;
  * Class AbstractField
  * @package Alekseon\CustomFormsFrontend\Block\Form\Field
  */
-class AbstractField extends \Magento\Framework\View\Element\Template
+class AbstractField extends \Magento\Framework\View\Element\Template implements InputBlockInterface
 {
     /**
      * @var
@@ -149,5 +149,14 @@ class AbstractField extends \Magento\Framework\View\Element\Template
     public function getDefaultValue()
     {
         return $this->getField()->getDefaultValue();
+    }
+
+
+    /**
+     * @return string[]
+     */
+    public function getLabelAllowedTags()
+    {
+        return ['a'];
     }
 }
