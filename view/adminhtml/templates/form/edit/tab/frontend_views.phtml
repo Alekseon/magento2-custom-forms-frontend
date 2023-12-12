@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+?>
+<?php
+/**
+ * @var $block \Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab\FrontendViews
+ */
+?>
+<divc class="messages">
+    <div class="message">
+        <span><?= __('@here frontend views explanation'); ?></span>
+    </div>
+</divc>
+<div class="page-actions-buttons">
+    <?= $block->getChildHtml('add_button'); ?>
+</div>
+<?= $block->getChildHtml('frontend_views_grid'); ?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Alekseon_CustomFormsFrontend/js/form/edit/frontend_views": {
+                "add_button": "#add_frontend_view_button"
+            }
+        }
+    }
+</script>
