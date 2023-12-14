@@ -18,11 +18,14 @@
     <?= $block->getChildHtml('add_button'); ?>
 </div>
 <?= $block->getChildHtml('frontend_views_grid'); ?>
+<div id="frontendViewsModal"></div>
 <script type="text/x-magento-init">
     {
         "*": {
             "Alekseon_CustomFormsFrontend/js/form/edit/frontend_views": {
-                "add_button": "#add_frontend_view_button"
+                "add_button": "#add_frontend_view_button",
+                "url": "<?= $block->getUrl('alekseon_customFormsFrontend/form/frontendView') ?>",
+                "modalId": "#frontendViewsModal"
             }
         }
     }
