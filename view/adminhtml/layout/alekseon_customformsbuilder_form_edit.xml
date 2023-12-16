@@ -5,10 +5,10 @@
  * http://www.alekseon.com/
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <referenceBlock name="form_edit_tabs">
         <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab\FrontendViews" name="frontend_views_tab" template="Alekseon_CustomFormsFrontend::form/edit/tab/frontend_views.phtml">
-            <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\FrontendViews" name="frontend_views_grid"/>
+            <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\FrontendViews" name="grid"/>
         </block>
         <action method="addTab">
             <argument name="name" xsi:type="string">frontend_views_tab</argument>

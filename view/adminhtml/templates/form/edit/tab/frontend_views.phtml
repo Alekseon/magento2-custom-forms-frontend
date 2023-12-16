@@ -17,15 +17,19 @@
 <div class="page-actions-buttons">
     <?= $block->getChildHtml('add_button'); ?>
 </div>
-<?= $block->getChildHtml('frontend_views_grid'); ?>
+<?= $block->getChildHtml('grid'); ?>
 <div id="frontendViewsModal"></div>
 <script type="text/x-magento-init">
     {
         "*": {
             "Alekseon_CustomFormsFrontend/js/form/edit/frontend_views": {
                 "add_button": "#add_frontend_view_button",
-                "url": "<?= $block->getUrl('alekseon_customFormsFrontend/form/frontendView') ?>",
-                "modalId": "#frontendViewsModal"
+                "modalUrl": "<?= $block->getUrl('alekseon_customFormsFrontend/form_frontendView', ['form_id' => $block->getFormId()]) ?>",
+                "saveUrl": "<?= $block->getUrl('alekseon_customFormsFrontend/form_frontendView/save', ['form_id' => $block->getFormId()]) ?>",
+                "deleteUrl": "<?= $block->getUrl('alekseon_customFormsFrontend/form_frontendView/delete', ['form_id' => $block->getFormId()]) ?>",
+                "modalId": "#frontendViewsModal",
+                "formId": "#frontend_view_form",
+                "gridJsName": "<?= $block->getChildBlock('grid')->getChildBlock('grid')->getJsObjectName() ?>"
             }
         }
     }

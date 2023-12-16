@@ -7,9 +7,30 @@ declare(strict_types=1);
 
 namespace Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab;
 
+use Magento\Directory\Helper\Data as DirectoryHelper;
+use Magento\Framework\Json\Helper\Data as JsonHelper;
+
 class FrontendViews extends \Magento\Backend\Block\Template implements
     \Magento\Backend\Block\Widget\Tab\TabInterface
 {
+    /**
+     * @var \Magento\Framework\Registry
+     */
+    private $coreRegistry;
+
+    /**
+     * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Magento\Framework\Registry $coreRegistry
+     */
+    public function __construct(
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Framework\Registry $coreRegistry
+    )
+    {
+        $this->coreRegistry = $coreRegistry;
+        parent::__construct($context);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -56,5 +77,11 @@ class FrontendViews extends \Magento\Backend\Block\Template implements
         );
 
         return parent::_prepareLayout();
+    }
+
+
+    public function getFormId()
+    {
+        return $this->coreRegistry->registry('current_form')->getId();
     }
 }

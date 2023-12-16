@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\FrontendViews\Edit\Tabs" name="edit_tabs">
+            <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\FrontendViews\Edit\Tabs\General" name="general_tab"/>
+            <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\FrontendViews\Edit\Tabs\Conditions" name="conditions_tab"/>
+            <action method="addTab">
+                <argument name="name" xsi:type="string">general</argument>
+                <argument name="block" xsi:type="string">general_tab</argument>
+            </action>
+            <action method="addTab">
+                <argument name="name" xsi:type="string">conditions</argument>
+                <argument name="block" xsi:type="string">conditions_tab</argument>
+            </action>
+        </block>
+        <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\FrontendViews\Edit" name="frontend_views_edit_form"/>
+    </container>
+</layout>
