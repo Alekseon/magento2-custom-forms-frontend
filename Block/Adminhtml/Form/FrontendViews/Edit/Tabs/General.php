@@ -47,6 +47,7 @@ class General extends \Magento\Backend\Block\Widget\Form\Generic implements TabI
                 'label' => __('Row Content'),
                 'title' => __('Row Content'),
                 'name' => 'row_content',
+                'note' => 'Use {{fieldValue id="code"}} {{fieldLabel id="code"}}'
             ]
         );
 

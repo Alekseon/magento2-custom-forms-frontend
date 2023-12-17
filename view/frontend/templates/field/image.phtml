@@ -4,5 +4,6 @@
  * http://www.alekseon.com/
  */
 ?>
-<img src="<?= $block->escapeHtml($block->getImageThumbnailUrl()) ?>"/>
-
+<?php if ($block->hasImage()): ?>
+    <img src="<?= $block->escapeHtml($block->getImageThumbnailUrl()) ?>"/>
+<?php endif ?>

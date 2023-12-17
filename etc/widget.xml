@@ -11,8 +11,8 @@
         <label translate="true">[Alekseon] Form Entities View</label>
         <description translate="true">Form Entities View</description>
         <parameters>
-            <parameter name="form_id" xsi:type="select" visible="true" source_model="Alekseon\WidgetForms\Model\Config\Source\AvailableForms">
-                <label translate="true">Select Form</label>
+            <parameter name="frontend_view_id" xsi:type="select" visible="true" source_model="Alekseon\CustomFormsFrontend\Model\Config\Source\FrontendViews">
+                <label translate="true">Select Frontend View</label>
             </parameter>
         </parameters>
     </widget>

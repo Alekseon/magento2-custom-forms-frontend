@@ -39,9 +39,14 @@ abstract class FrontendView extends \Magento\Backend\App\Action
     {
         $frontendView = $this->frontendViewFactory->create();
         $frontendView->load((int)$this->getRequest()->getParam($frontendViewIdParam));
+        $formId = (int)$this->getRequest()->getParam($formIdParam);
 
         if (!$frontendView->getId()) {
-            $frontendView->setFormId((int)$this->getRequest()->getParam($formIdParam));
+            $frontendView->setFormId($formId);
+        }
+
+        if ($formId !== (int) $frontendView->getFormId()) {
+            throw new \Exception((string)__('Unable to load Frontend View'));
         }
 
         $this->coreRegistry->register('current_frontend_view', $frontendView);

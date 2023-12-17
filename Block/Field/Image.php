@@ -59,5 +59,13 @@ class Image extends \Magento\Backend\Block\Template
 
         return $this->imageHelper->getUrl();
     }
+
+    /**
+     * @return bool
+     */
+    public function hasImage()
+    {
+        return (bool) $this->getFormRecord()->getData($this->getRecordAttribute()->getAttributeCode());
+    }
 }
 

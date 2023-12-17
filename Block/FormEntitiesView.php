@@ -7,7 +7,9 @@ declare(strict_types=1);
 
 namespace Alekseon\CustomFormsFrontend\Block;
 
+use Alekseon\CustomFormsBuilder\Model\FormRecord;
 use Alekseon\CustomFormsBuilder\Model\FormRepository;
+use Alekseon\CustomFormsFrontend\Model\Form\FrontendViewFactory;
 use Magento\Framework\View\Element\Template;
 
 class FormEntitiesView extends \Magento\Framework\View\Element\Template
@@ -17,19 +19,35 @@ class FormEntitiesView extends \Magento\Framework\View\Element\Template
     /**
      * @var
      */
-    protected $form;
+    protected $frontendView;
     /**
      * @var FormRepository
      */
-    protected $formRepository;
+    protected $frontendViewFactory;
+    /**
+     * @var \Alekseon\CustomFormsFrontend\Model\Template\Filter
+     */
+    private $templateFilter;
 
     public function __construct(
         Template\Context $context,
-        FormRepository $formRepository,
+        FrontendViewFactory $frontendViewFactory,
+        \Alekseon\CustomFormsFrontend\Model\Template\Filter $templateFilter,
         array $data = []
     ) {
-        $this->formRepository = $formRepository;
+        $this->frontendViewFactory = $frontendViewFactory;
+        $this->templateFilter = $templateFilter;
         parent::__construct($context, $data);
+    }
+
+    public function getFrontendView()
+    {
+        if ($this->frontendView == null) {
+            $viewId = (int)$this->getData('frontend_view_id');
+            $this->frontendView = $this->frontendViewFactory->create();
+            $this->frontendView->load($viewId);
+        }
+        return $this->frontendView;
     }
 
     /**
@@ -37,23 +55,17 @@ class FormEntitiesView extends \Magento\Framework\View\Element\Template
      */
     public function getForm()
     {
-        if ($this->form === null) {
-            $identifier = $this->getData('form_identifier');
-            if ($identifier) {
-                try {
-                    $this->form = $this->formRepository->getByIdentifier($identifier, null, true);
-                } catch (\Exception $e) {}
-            } else {
-                $formId = (int)$this->getData('form_id');
-                if ($formId) {
-                    try {
-                        $this->form = $this->formRepository->getById($formId, null, true);
-                    } catch (\Exception $e) {}
-                }
-            }
-        }
+        return $this->getFrontendView()->getForm();
+    }
 
-        return $this->form;
+    /**
+     * @param FormRecord $row
+     * @return string
+     */
+    public function getRowContent(FormRecord $row)
+    {
+        $this->templateFilter->setFormRecord($row);
+        return $this->templateFilter->filter($this->getFrontendView()->getRowContent());
     }
 
     /**
@@ -61,7 +73,10 @@ class FormEntitiesView extends \Magento\Framework\View\Element\Template
      */
     public function getFormEntities()
     {
-        return $this->getForm() ? $this->getForm()->getRecordCollection() : [];
+        if ($this->getForm()) {
+            return $this->getForm()->getRecordCollection()->addAttributeToSelect("*");
+        }
+        return [];
     }
 
     /**

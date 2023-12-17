@@ -12,7 +12,7 @@
 <ol class="items">
     <?php foreach ($block->getFormEntities() as $entity): ?>
         <li class="item">
-            <?= $entity->getId() ?>
+            <?= $block->getRowContent($entity) ?>
         </li>
     <?php endforeach ?>
 </ol>
