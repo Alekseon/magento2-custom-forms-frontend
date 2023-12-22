@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="form_edit_tabs">
+        <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab\FrontendView" name="frontend_view_tab" template="Alekseon_CustomFormsFrontend::form/edit/tab/frontend_view.phtml">
+            <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab\FrontendView\Form" name="grid"/>
+        </block>
+        <action method="addTab">
+            <argument name="name" xsi:type="string">frontend_view_tab</argument>
+            <argument name="block" xsi:type="string">frontend_view_tab</argument>
+        </action>
+    </referenceBlock>
+</page>

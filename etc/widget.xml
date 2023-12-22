@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="alekseon_form_grid_view" class="Alekseon\CustomFormsFrontend\Block\FormEntitiesListView">
+        <label translate="true">[Alekseon] Form Entities List View</label>
+        <description translate="true">Widget Form</description>
+        <parameters>
+            <parameter name="form_id" xsi:type="select" visible="true" source_model="Alekseon\CustomFormsFrontend\Model\Config\Source\AvailableForms">
+                <label translate="true">Select Frontend View</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
+
