@@ -10,4 +10,11 @@ namespace Alekseon\CustomFormsFrontend\Model\Form\FrontendView\Condition;
 abstract class AbstractCondition  extends \Magento\Rule\Model\Condition\AbstractCondition
 {
     protected $elementName = 'frontend_view_conditions';
+
+    public function getAttributeElement()
+    {
+        $element = parent::getAttributeElement();
+        $element->setShowAsText(true);
+        return $element;
+    }
 }

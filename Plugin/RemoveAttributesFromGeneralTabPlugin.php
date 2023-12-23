@@ -33,6 +33,13 @@ class RemoveAttributesFromGeneralTabPlugin
         return [$generalFieldset, $formObject, $groups];
     }
 
+    /**
+     * @param \Alekseon\AlekseonEav\Block\Adminhtml\Entity\Edit\Form $generalTabBlock
+     * @param $result
+     * @param Fieldset $generalFieldset
+     * @return mixed
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
     public function afterAddAllAttributeFields(
         \Alekseon\AlekseonEav\Block\Adminhtml\Entity\Edit\Form $generalTabBlock,
         $result,

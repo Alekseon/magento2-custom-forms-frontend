@@ -88,11 +88,4 @@ class Customer extends AbstractCondition
         }
         return $this->getData('value_select_options');
     }
-
-    public function getAttributeElement()
-    {
-        $element = parent::getAttributeElement();
-        $element->setShowAsText(true);
-        return $element;
-    }
 }

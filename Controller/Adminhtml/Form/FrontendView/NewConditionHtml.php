@@ -10,10 +10,11 @@ namespace Alekseon\CustomFormsFrontend\Controller\Adminhtml\Form\FrontendView;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Rule\Model\Condition\AbstractCondition;
 
-class NewConditionHtml extends \Magento\Backend\App\Action implements HttpPostActionInterface
+class NewConditionHtml extends \Alekseon\CustomFormsBuilder\Controller\Adminhtml\Form implements HttpPostActionInterface
 {
     public function execute()
     {
+        $this->initForm('form_id');
         $id = $this->getRequest()->getParam('id');
         $typeArr = explode('|', str_replace('-', '/', $this->getRequest()->getParam('type')));
         $type = $typeArr[0];

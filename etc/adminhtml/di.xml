@@ -13,6 +13,7 @@
         <arguments>
             <argument name="conditions" xsi:type="array">
                 <item name="customerCondition" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Form\FrontendView\Condition\Customer</item>
+                <item name="formFieldsCondition" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Form\FrontendView\Condition\FormFields</item>
             </argument>
         </arguments>
     </type>

@@ -36,9 +36,10 @@ class Combine extends \Magento\Rule\Model\Condition\Combine
         $attributeConditions = [];
         foreach ($this->conditions as $condition) {
             $attributes = $condition->loadAttributeOptions()->getAttributeOption();
+            $options = [];
             foreach ($attributes as $code => $label) {
                 $options[] = [
-                    'value' => $condition::class . '|' . $code,
+                    'value' => get_class($condition) . '|' . $code,
                     'label' => $label,
                 ];
             }

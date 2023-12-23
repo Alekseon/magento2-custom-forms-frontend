@@ -53,7 +53,11 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic
         $conditionsFieldSetId = 'condition_fieldset';
 
         $newChildUrl = $this->getUrl(
-            'alekseon_customFormsFrontend/form_frontendView/newConditionHtml/form/' . $conditionsFieldSetId
+            'alekseon_customFormsFrontend/form_frontendView/newConditionHtml/form/' . $conditionsFieldSetId,
+            [
+                'form_id' => $currentForm->getId(),
+                'store' => $currentForm->getStoreId()
+            ]
         );
 
         $renderer = $this->getLayout()->createBlock(Fieldset::class);
@@ -66,8 +70,8 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic
             ['legend' => __('Conditions')]
         )->setRenderer($renderer);
 
-        $rule = $this->conditionFactory->create();
-        $rule->loadPost($currentForm->getFrontendViewConditions());
+        $condition = $this->conditionFactory->create();
+        $condition->loadPost($currentForm->getFrontendViewConditions());
 
         $element = $conditionsFieldset->addField(
             'conditions',
@@ -81,7 +85,7 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic
             $this->conditions
         );
 
-        $element->setRule($rule);
+        $element->setRule($condition);
         $form->setValues($currentForm->getData());
 
         $this->setForm($form);
