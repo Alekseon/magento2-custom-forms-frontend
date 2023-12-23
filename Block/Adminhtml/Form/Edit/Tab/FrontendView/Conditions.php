@@ -67,6 +67,7 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic
         )->setRenderer($renderer);
 
         $rule = $this->conditionFactory->create();
+        $rule->loadPost($currentForm->getFrontendViewConditions());
 
         $element = $conditionsFieldset->addField(
             'conditions',
@@ -76,8 +77,6 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic
                 'label' => __('Conditions'),
                 'title' => __('Conditions'),
             ]
-        )->setRule(
-            $currentForm
         )->setRenderer(
             $this->conditions
         );

@@ -15,7 +15,7 @@ use Magento\Rule\Model\Condition\Context;
 class Combine extends \Magento\Rule\Model\Condition\Combine
 {
     protected $elementName = 'frontend_view_conditions';
-    private $customerCondition;
+    private $conditions;
 
     /**
      * @param Context $context
@@ -23,24 +23,26 @@ class Combine extends \Magento\Rule\Model\Condition\Combine
      */
     public function __construct(
         \Magento\Rule\Model\Condition\Context $context,
-        \Alekseon\CustomFormsFrontend\Model\Form\FrontendView\Condition\Customer $customerCondition,
+        $conditions = [],
         array $data = []
     )
     {
-        $this->customerCondition = $customerCondition;
+        $this->conditions = $conditions;
         parent::__construct($context, $data);
     }
 
     public function getNewChildSelectOptions()
     {
-        $customerAttributes = $this->customerCondition->loadAttributeOptions()->getAttributeOption();
-
-        $customerOptions = [];
-        foreach ($customerAttributes as $code => $label) {
-            $customerOptions[] = [
-                'value' => $this->customerCondition::class . '|' . $code,
-                'label' => $label,
-            ];
+        $attributeConditions = [];
+        foreach ($this->conditions as $condition) {
+            $attributes = $condition->loadAttributeOptions()->getAttributeOption();
+            foreach ($attributes as $code => $label) {
+                $options[] = [
+                    'value' => $condition::class . '|' . $code,
+                    'label' => $label,
+                ];
+            }
+            $attributeConditions[] = ['label' => $condition->getLabel(), 'value' => $options];
         }
 
         $conditions = parent::getNewChildSelectOptions();
@@ -51,8 +53,8 @@ class Combine extends \Magento\Rule\Model\Condition\Combine
                     'value' => \Alekseon\CustomFormsFrontend\Model\Form\FrontendView\Condition\Combine::class,
                     'label' => __('Conditions combination')
                 ],
-                ['label' => __('Customer'), 'value' => $customerOptions]
-            ]
+            ],
+            $attributeConditions
         );
         return $conditions;
     }

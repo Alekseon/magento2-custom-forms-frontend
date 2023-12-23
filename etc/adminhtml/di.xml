@@ -9,4 +9,11 @@
     <type name="Alekseon\CustomFormsBuilder\Block\Adminhtml\Form\Edit\Tab\General">
         <plugin name="Alekseon_CustomFormsFrontend:RemoveAttributesFromGeneralTabPlugin" type="Alekseon\CustomFormsFrontend\Plugin\RemoveAttributesFromGeneralTabPlugin" sortOrder="100" />
     </type>
+    <type name="Alekseon\CustomFormsFrontend\Model\Form\FrontendView\Condition\Combine">
+        <arguments>
+            <argument name="conditions" xsi:type="array">
+                <item name="customerCondition" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Form\FrontendView\Condition\Customer</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

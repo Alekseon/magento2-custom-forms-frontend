@@ -31,12 +31,17 @@ class Customer extends AbstractCondition
         parent::__construct($context, $data);
     }
 
+    public function getLabel()
+    {
+        return __('Customer');
+    }
+
     public function loadAttributeOptions()
     {
         $attributes = [
             'customer_email' => __('Customer Email'),
             'customer_group' => __('Customer Group'),
-            'is_logged_in' => __('Is Logged In'),
+            'is_logged_in' => __('Customer Logged In'),
         ];
 
         $this->setAttributeOption($attributes);
@@ -71,7 +76,7 @@ class Customer extends AbstractCondition
         if (!$this->hasData('value_select_options')) {
             switch ($this->getAttribute()) {
                 case 'customer_email':
-                    $options = ['1' => 'cdfd'];
+                    $options = [['value' => '1', 'label' => 'aaa']];
                     break;
                 case 'is_logged_in':
                     $options = $this->yesNoOptions->toOptionArray();
