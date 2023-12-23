@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Alekseon\CustomFormsFrontend\Plugin;
 
+use Magento\Framework\Data\Form\Element\Fieldset;
+
 /**
  * Class RemoveAttributesFromGeneralTabPlugin
  * @package Alekseon\CustomFormsEmailNotification\Plugin
@@ -21,9 +23,22 @@ class RemoveAttributesFromGeneralTabPlugin
      * @return array
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function beforeAddAllAttributeFields($generalTabBlock, $generalFieldset, $formObject, $groups = []): array
-    {
+    public function beforeAddAllAttributeFields(
+        \Alekseon\AlekseonEav\Block\Adminhtml\Entity\Edit\Form $generalTabBlock,
+        $generalFieldset,
+        $formObject,
+        $groups = []
+    ) {
         $groups['excluded'][] = 'frontend_view_list';
         return [$generalFieldset, $formObject, $groups];
+    }
+
+    public function afterAddAllAttributeFields(
+        \Alekseon\AlekseonEav\Block\Adminhtml\Entity\Edit\Form $generalTabBlock,
+        $result,
+        Fieldset $generalFieldset
+    ) {
+        $generalFieldset->removeField('frontend_view_conditions');
+        return $result;
     }
 }

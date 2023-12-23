@@ -9,6 +9,7 @@
     <referenceBlock name="form_edit_tabs">
         <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab\FrontendView" name="frontend_view_tab" template="Alekseon_CustomFormsFrontend::form/edit/tab/frontend_view.phtml">
             <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab\FrontendView\Form" name="grid"/>
+            <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab\FrontendView\Conditions" name="conditions"/>
         </block>
         <action method="addTab">
             <argument name="name" xsi:type="string">frontend_view_tab</argument>

@@ -7,6 +7,25 @@
 <?php
 /**
  * @var \Alekseon\CustomFormsFrontend\Block\Adminhtml\Form\Edit\Tab\FrontendView $block
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
  */
 ?>
 <?= $block->getChildHtml() ?>
+<?php
+
+$_jsObjectName = 'condition_fieldset';
+$scriptString = <<<script
+
+require([
+    'Magento_Rule/rules',
+    'prototype'
+], function(VarienRulesForm){
+
+script;
+$scriptString .= 'window.' . /* @noEscape */ $_jsObjectName . ' = new VarienRulesForm(\'' .
+    /* @noEscape */ $_jsObjectName . '\', \'' .  /* @noEscape */ $block->getNewChildUrl() . '\');';
+
+
+$scriptString .= '});' . PHP_EOL;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>

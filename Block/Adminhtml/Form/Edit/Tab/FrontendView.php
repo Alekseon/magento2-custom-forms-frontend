@@ -18,7 +18,7 @@ class FrontendView extends \Magento\Backend\Block\Template implements
      */
     public function getTabLabel()
     {
-        return __('Frontend Views');
+        return __('Frontend View');
     }
 
     /**
@@ -26,7 +26,7 @@ class FrontendView extends \Magento\Backend\Block\Template implements
      */
     public function getTabTitle()
     {
-        return __('Frontend Views');
+        return __('Frontend View');
     }
 
     /**

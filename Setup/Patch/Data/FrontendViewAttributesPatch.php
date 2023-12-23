@@ -85,31 +85,18 @@ class FrontendViewAttributesPatch  implements DataPatchInterface, PatchRevertabl
             ]
         );
 
+        $eavSetup->deleteAttribute('frontend_view_conditions');
         $eavSetup->createAttribute(
-            'frontend_view_list_limit',
+            'frontend_view_conditions',
             [
                 'frontend_input' => 'text',
-                'frontend_label' => 'Rows Limit',
-                'backend_type' => 'int',
+                'frontend_label' => '',
+                'backend_type' => 'text',
+                'backend_model' => 'Alekseon\AlekseonEav\Model\Attribute\Backend\Serialized',
                 'visible_in_grid' => false,
                 'is_required' => false,
-                'sort_order' => 33,
+                'sort_order' => 1,
                 'scope' => Scopes::SCOPE_GLOBAL,
-                'group_code' => 'frontend_view_list',
-            ]
-        );
-
-        $eavSetup->createAttribute(
-            'frontend_view_list_page_size',
-            [
-                'frontend_input' => 'text',
-                'frontend_label' => 'Page Size',
-                'backend_type' => 'int',
-                'visible_in_grid' => false,
-                'is_required' => false,
-                'sort_order' => 34,
-                'scope' => Scopes::SCOPE_GLOBAL,
-                'group_code' => 'frontend_view_list',
             ]
         );
 
@@ -128,8 +115,7 @@ class FrontendViewAttributesPatch  implements DataPatchInterface, PatchRevertabl
         $eavSetup->setAttributeRepository($this->formAttributeRepository);
         $eavSetup->deleteAttribute('frontend_view_list_row_content');
         $eavSetup->deleteAttribute('frontend_view_list_sort_by');
-        $eavSetup->deleteAttribute('frontend_view_list_limit');
-        $eavSetup->deleteAttribute('frontend_view_list_page_size');
+        $eavSetup->deleteAttribute('frontend_view_conditions');
         $this->moduleDataSetup->getConnection()->endSetup();
     }
 
