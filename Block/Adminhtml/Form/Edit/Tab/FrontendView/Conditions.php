@@ -71,7 +71,7 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic
         )->setRenderer($renderer);
 
         $condition = $this->conditionFactory->create();
-        $condition->loadPost($currentForm->getFrontendViewConditions());
+        $condition->loadPost($currentForm->getFrontendViewConditions() ?: []);
 
         $element = $conditionsFieldset->addField(
             'conditions',

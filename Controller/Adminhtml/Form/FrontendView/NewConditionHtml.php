@@ -12,6 +12,9 @@ use Magento\Rule\Model\Condition\AbstractCondition;
 
 class NewConditionHtml extends \Alekseon\CustomFormsBuilder\Controller\Adminhtml\Form implements HttpPostActionInterface
 {
+    /**
+     * @return void
+     */
     public function execute()
     {
         $this->initForm('form_id');
