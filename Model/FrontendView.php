@@ -25,7 +25,7 @@ class FrontendView extends \Alekseon\AlekseonEav\Model\Entity implements Identit
         \Alekseon\AlekseonEav\Model\Context $context,
         \Magento\Framework\Registry $registry,
         \Alekseon\CustomFormsFrontend\Model\ResourceModel\FrontendView $resource,
-        \Alekseon\CustomFormsFrontend\Model\ResourceModel\FrontendView\Collection $resourceCollection,
+        \Alekseon\CustomFormsFrontend\Model\ResourceModel\FrontendView\Collection $resourceCollection
     ) {
         parent::__construct(
             $context,

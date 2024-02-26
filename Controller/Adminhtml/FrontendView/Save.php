@@ -38,10 +38,6 @@ class Save extends \Alekseon\CustomFormsFrontend\Controller\Adminhtml\FrontendVi
                 $frontendView->save();
                 $this->messageManager->addSuccessMessage(__('You saved the Frontend View.'));
             } catch (\Exception $e) {
-
-                var_dump($e->getMessage());
-                die();
-
                 $this->dataPersistor->set('current_frontend_view_data', $data);
                 $this->messageManager->addErrorMessage($e->getMessage());
                 $returnToEdit = true;
