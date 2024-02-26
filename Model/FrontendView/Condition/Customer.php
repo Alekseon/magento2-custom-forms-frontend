@@ -76,7 +76,7 @@ class Customer extends AbstractCondition
         if (!$this->hasData('value_select_options')) {
             switch ($this->getAttribute()) {
                 case 'customer_email':
-                    $options = [['value' => '1', 'label' => 'aaa']];
+                    $options = [['value' => '1', 'label' => 'TODO']];
                     break;
                 case 'is_logged_in':
                     $options = $this->yesNoOptions->toOptionArray();

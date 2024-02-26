@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Alekseon\CustomFormsFrontend\Block\Adminhtml\FrontendView;
 
 use Alekseon\AlekseonEav\Block\Adminhtml\Entity\Grid as EavGrid;
+use Alekseon\CustomFormsBuilder\Model\Form;
 
 class Grid extends EavGrid
 {
@@ -54,8 +55,17 @@ class Grid extends EavGrid
     protected function _prepareCollection()
     {
         $collection = $this->frontendViewFactory->create()->getCollection();
+        $collection->addFieldToFilter('form_id', $this->getCurrentForm()->getId());
         $this->setCollection($collection);
         return parent::_prepareCollection();
+    }
+
+    /**
+     * @return Form
+     */
+    private function getCurrentForm()
+    {
+        return $this->coreRegistry->registry('current_form');
     }
 
     /**

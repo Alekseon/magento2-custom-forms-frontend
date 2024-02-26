@@ -56,7 +56,6 @@ class Conditions extends \Magento\Backend\Block\Widget\Form\Generic
         $newChildUrl = $this->getUrl(
             '*/*/newConditionHtml/form/' . $conditionsFieldSetId,
             [
-                'id' => $frontendView->getId(),
                 'form_id' => $frontendView->getFormId(),
                 'store' => $frontendView->getStoreId(),
             ]
