@@ -17,7 +17,7 @@ class Form extends \Alekseon\AlekseonEav\Block\Adminhtml\Entity\Edit\Form
      */
     public function getDataObject()
     {
-        return $this->_coreRegistry->registry('current_frontend_view');
+        return false;
     }
 
     /**
@@ -37,30 +37,10 @@ class Form extends \Alekseon\AlekseonEav\Block\Adminhtml\Entity\Edit\Form
             ]
         );
 
-        $dataObject = $this->getDataObject();
-
-        $form->addField('form_id', 'hidden', ['name' => 'form_id']);
-        if ($dataObject->getId()) {
-            $form->addField('entity_id', 'hidden', ['name' => 'entity_id']);
-        }
-
-        $fieldset = $form->addFieldset('general_fieldset', ['legend' => __('Frontend View')]);
-        $this->addAllAttributeFields($fieldset, $dataObject);
-
         $this->setForm($form);
         $this->getForm()->setUseContainer(true);
 
         return parent::_prepareForm();
     }
 
-    /**
-     * Initialize form fileds values
-     *
-     * @return $this
-     */
-    protected function _initFormValues()
-    {
-        $this->getForm()->addValues($this->getDataObject()->getData());
-        return parent::_initFormValues();
-    }
 }

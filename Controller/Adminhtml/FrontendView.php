@@ -91,8 +91,8 @@ abstract class FrontendView extends \Magento\Backend\App\Action
             $entityId = $this->getRequest()->getParam($requestParam, false);
             $storeId = $this->getRequest()->getParam('store');
             $frontendView = $this->frontendViewRepository->getById($entityId, $storeId, true);
+            $form = $this->initForm($formRequestParam);
             if (!$frontendView->getId()) {
-                $form = $this->initForm($formRequestParam);
                 $frontendView->setForm($form);
                 $frontendView->setFormId($form->getId());
             }

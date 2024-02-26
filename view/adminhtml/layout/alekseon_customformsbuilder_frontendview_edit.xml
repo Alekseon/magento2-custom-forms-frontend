@@ -5,7 +5,7 @@
  * http://www.alekseon.com/
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="formkey"/>
     <head>
         <css src="css/styles-old.css"/>
@@ -21,9 +21,21 @@
                 </action>
             </block>
         </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\FrontendView\Edit\Tabs" name="frontend_view_edit_tabs">
+                <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\FrontendView\Edit\Tab\General" name="frontend_view_general_tab" template="Alekseon_CustomFormsFrontend::frontend_view/edit/tab/general.phtml">
+                    <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\FrontendView\Edit\Tab\General\Form" name="form"/>
+                    <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\FrontendView\Edit\Conditions" name="conditions"/>
+                </block>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general_tab</argument>
+                    <argument name="block" xsi:type="string">frontend_view_general_tab</argument>
+                </action>
+            </block>
+        </referenceContainer>
         <referenceContainer name="content">
             <container name="form.wrapper" htmlTag="div" htmlClass="admin__scope-old">
-                <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\FrontendView\Edit" name="entity_edit"/>
+                <block class="Alekseon\CustomFormsFrontend\Block\Adminhtml\FrontendView\Edit" />
             </container>
         </referenceContainer>
     </body>

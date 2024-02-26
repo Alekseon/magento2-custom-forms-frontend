@@ -51,7 +51,9 @@ class Save extends \Alekseon\CustomFormsFrontend\Controller\Adminhtml\FrontendVi
                 'form_id' => $frontendView->getFormId()
             ]);
         } else {
-            return $this->returnResult('*/*/');
+            return $this->returnResult('*/*/', [
+                'form_id' => $frontendView->getFormId()
+            ]);
         }
     }
 }

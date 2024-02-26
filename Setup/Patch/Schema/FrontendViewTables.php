@@ -50,6 +50,8 @@ class FrontendViewTables implements SchemaPatchInterface
         $eavSetup->createEavEntitiesTables(
             'alekseon_custom_form_attribute',
             'alekseon_custom_form_frontend_view_entity',
+            null,
+            'alekseon_custom_form_frontend_view',
         );
 
         $this->schemaSetup->endSetup();

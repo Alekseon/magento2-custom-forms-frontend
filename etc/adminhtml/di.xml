@@ -9,5 +9,13 @@
     <type name="Alekseon\CustomFormsBuilder\Block\Adminhtml\Form\Grid\Renderer\Actions">
         <plugin name="Alekseon_CustomFormsFrontend::CustomFormsGridActionsPlugin" type="Alekseon\CustomFormsFrontend\Plugin\CustomFormsGridActionsPlugin" sortOrder="100" />
     </type>
+    <type name="Alekseon\CustomFormsFrontend\Model\FrontendView\Condition\Combine">
+        <arguments>
+            <argument name="conditions" xsi:type="array">
+                <item name="customerCondition" xsi:type="object">Alekseon\CustomFormsFrontend\Model\FrontendView\Condition\Customer</item>
+                <item name="formFieldsCondition" xsi:type="object">Alekseon\CustomFormsFrontend\Model\FrontendView\Condition\FormFields</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
 
