@@ -1,7 +1,7 @@
 define(['jquery'], function($) {
     'use strict';
 
-    return function() {
+    return function(target) {
         $.validator.addMethod(
             'alekseon-validate-form-filesize',
             function(v, element, params) {
@@ -39,5 +39,7 @@ define(['jquery'], function($) {
             },
             $.mage.__('File is not an image.')
         )
+
+        return target;
     }
 });
