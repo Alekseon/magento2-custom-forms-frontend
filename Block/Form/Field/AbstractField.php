@@ -7,6 +7,9 @@ declare(strict_types=1);
 
 namespace Alekseon\CustomFormsFrontend\Block\Form\Field;
 
+use Alekseon\AlekseonEav\Model\Attribute\InputValidator\AbstractValidator;
+use Alekseon\CustomFormsBuilder\Model\FormRecord\Attribute;
+
 /**
  * Class AbstractField
  * @package Alekseon\CustomFormsFrontend\Block\Form\Field
@@ -21,6 +24,19 @@ class AbstractField extends \Magento\Framework\View\Element\Template implements 
      * @var
      */
     private $validationClass;
+    /**
+     * @var bool
+     */
+    private $validatorsProcessed = false;
+
+    /**
+     * @return $this
+     */
+    public function prepare()
+    {
+        $this->processValidators();
+        return $this;
+    }
 
     /**
      * @return bool
@@ -68,18 +84,26 @@ class AbstractField extends \Magento\Framework\View\Element\Template implements 
     }
 
     /**
-     * @return array
+     * @return Attribute
      */
-    public function getDataValidateParams()
+    public function getField()
     {
-        if ($this->dataValidateParams === null) {
+        return $this->getData('field');
+    }
+
+    /**
+     * @return $this
+     */
+    private function processValidators()
+    {
+        if (!$this->validatorsProcessed) {
             $this->validationClass = '';
             $this->dataValidateParams = [];
             if ($this->isRequired()) {
                 $this->dataValidateParams['required'] = true;
             }
-
             $inputValidators = $this->getField()->getInputValidators();
+            /** @var AbstractValidator $validator */
             foreach ($inputValidators as $validator) {
                 $validateParams = $validator->getDataValidateParams();
                 foreach ($validateParams as $key => $value) {
@@ -87,9 +111,25 @@ class AbstractField extends \Magento\Framework\View\Element\Template implements 
                 }
 
                 $this->validationClass .= $validator->getValidationFieldClass();
+                $this->_eventManager->dispatch(
+                    'alekseon_custom_form_after_add_field_validator_' . $validator->getCode(),
+                    [
+                        'validator' => $validator,
+                        'field_block' => $this,
+                    ]
+                );
             }
+            $this->validatorsProcessed = true;
         }
+        return $this;
+    }
 
+    /**
+     * @return array
+     */
+    public function getDataValidateParams()
+    {
+        $this->processValidators();
         return $this->dataValidateParams;
     }
 
@@ -98,7 +138,7 @@ class AbstractField extends \Magento\Framework\View\Element\Template implements 
      */
     public function getValidationClass()
     {
-        $this->getDataValidateParams();
+        $this->processValidators();
         return $this->validationClass;
     }
 

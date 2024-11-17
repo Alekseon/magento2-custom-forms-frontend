@@ -38,7 +38,7 @@ define(['jquery'], function($) {
                 return true;
             },
             $.mage.__('File is not an image.')
-        )
+        );
 
         return target;
     }

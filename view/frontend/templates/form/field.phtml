@@ -3,7 +3,6 @@
  * Copyright © Alekseon sp. z o.o.
  * http://www.alekseon.com/
  */
-
 /**
  * @var $block \Alekseon\CustomFormsFrontend\Block\Form\Field
  * @var $escaper \Magento\Framework\Escaper
@@ -15,5 +14,5 @@
             <?= $escaper->escapeHtml($block->getInputBlock()->getLabel(), $block->getInputBlock()->getLabelAllowedTags()) ?>
         </label>
     <?php endif ?>
-    <?= $block->getChildHtml('field_input') ?>
+    <?= $block->getChildHtml() ?>
 </div>

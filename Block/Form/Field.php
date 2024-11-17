@@ -36,18 +36,18 @@ class Field extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     * @return AbstractBlock|false
+     * @return void
      */
     private function addInputBlock()
     {
         $attribute = $this->getFormAttribute();
         if (!$attribute instanceof AttributeInterface) {
-            return false;
+            return;
         }
 
         $frontendInputTypeConfig = $attribute->getFrontendInputTypeConfig();
         if (!$frontendInputTypeConfig) {
-            return false;
+            return;
         }
         $frontendBlocks = $frontendInputTypeConfig->getFrontendBlocks();
         $frontendBlock = [];
@@ -66,36 +66,20 @@ class Field extends \Magento\Framework\View\Element\Template
             unset($frontendBlock['class']);
             $frontendBlock['field'] = $attribute;
             $frontendBlock['is_required'] = $attribute->getIsRequired();
-            $frontendBlock['id'] = $this->getFieldId();
+            $frontendBlock['id'] = $attribute->getAttributeCode();;
             $frontendBlock['label'] = $attribute->getFrontendLabel();
             $frontendBlock['name'] = $attribute->getAttributeCode();
 
-            return $this->addChild(
+            /** @var AbstractField $inputBlock */
+            $inputBlock = $this->addChild(
                 'field_input',
                 $class,
                 $frontendBlock
             );
-        }
 
-        return false;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFieldId()
-    {
-        $fieldId = $this->getData('field_id');
-        if ($fieldId === null) {
-            $attribute = $this->getFormAttribute();
-            $fieldId = 'form_field_';
-            if ($attribute->getForm()) {
-                $fieldId .= $attribute->getForm()->getId();
-            }
-            $fieldId .= '_' . $attribute->getAttributeCode();
-            $this->setData('field_id', $fieldId);
+            $inputBlock->prepare();
+            $this->setData('input_block', $inputBlock);
         }
-        return $fieldId;
     }
 
     /**
@@ -107,14 +91,11 @@ class Field extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     * @return string
+     * @inheritDoc
      */
-    protected function _toHtml()
+    protected function _prepareLayout()
     {
-        $inputBlock = $this->addInputBlock();
-        if ($inputBlock) {
-            $this->setData('input_block', $inputBlock);
-        }
-        return parent::_toHtml();
+        $this->addInputBlock();
+        return parent::_prepareLayout();
     }
 }
