@@ -10,6 +10,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.1.4] - 2024-11-17
+### Added
+- changes for postal code validator
+
+## [100.1.3] - 2024-06-06
+### Fixed
+- Fix validation-mixin (https://github.com/Alekseon/magento2-custom-forms-frontend/pull/1)
+
+## [100.1.2] - 2023-12-03
+### Added
+- Image file frontend validation
+
 ## [100.1.1] - 2023-10-06
 ### Changed
 - getLabelAllowedTags method, to allow a tags - to allow tag <a href> in labels, for case with link to 'agreements'
