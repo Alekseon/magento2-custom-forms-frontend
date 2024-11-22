@@ -2,7 +2,7 @@
     "name": "alekseon/custom-forms-frontend",
     "description": "N/A",
     "require": {
-        "alekseon/custom-forms-builder": "^102.2.2"
+        "alekseon/custom-forms-builder": "^102.3.14"
     },
     "type": "magento2-module",
     "version": "100.1.4",
