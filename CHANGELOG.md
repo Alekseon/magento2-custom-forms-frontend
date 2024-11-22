@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [100.1.4] - 2024-11-17
 ### Added
 - changes for postal code validator
+### Removed
+- removed file inputs validators (moved to Alekseon_CusetomFormsBuidler) 
 
 ## [100.1.3] - 2024-06-06
 ### Fixed
