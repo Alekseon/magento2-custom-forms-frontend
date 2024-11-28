@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [Unreleased]
+### Added
+- frontendBlock for date field
+
 ## [100.1.4] - 2024-11-17
 ### Added
 - changes for postal code validator
