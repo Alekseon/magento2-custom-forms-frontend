@@ -102,6 +102,9 @@
                     <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Text</item>
                     <item name="template" xsi:type="string">Alekseon_CustomFormsFrontend::field/rating.phtml</item>
                 </item>
+                <item name="date" xsi:type="array">
+                    <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Field\Date</item>
+                </item>
             </argument>
         </arguments>
     </type>
