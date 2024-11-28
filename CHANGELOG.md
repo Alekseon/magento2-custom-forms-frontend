@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
-## [Unreleased]
+## [100.1.5] - 2024-11-28
 ### Added
 - frontendBlock for date field
 
