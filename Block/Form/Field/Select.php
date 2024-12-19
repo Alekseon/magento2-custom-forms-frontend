@@ -66,4 +66,12 @@ class Select extends \Alekseon\CustomFormsFrontend\Block\Form\Field\AbstractFiel
     {
         return $this->getField()->getInputTypeModel()->hasEmptyOption();
     }
+
+    /**
+     * @return string
+     */
+    public function getEmptyOptionLabel()
+    {
+        return '';
+    }
 }

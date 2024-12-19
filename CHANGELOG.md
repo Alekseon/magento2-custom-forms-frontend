@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.1.6] - 2024-12-19
+### Added
+- getEmptyOptionLabel method for select (it has empty value, but it can be changed by plugin)
+
 ## [100.1.5] - 2024-11-28
 ### Added
 - frontendBlock for date field

@@ -17,7 +17,7 @@
         data-validate=<?= $block->getDataValidateJson() ?>
     >
         <?php if ($block->hasEmptyOption()): ?>
-            <option value=""></option>
+            <option value=""><?= $escaper->escapeHtmlAttr($block->getEmptyOptionLabel()) ?></option>
         <?php endif ?>
         <?php foreach ($block->getOptions() as $optionId => $optionLabel): ?>
             <option value="<?= $escaper->escapeHtmlAttr($optionId) ?>" <?php if ($block->isSelected($optionId)): ?>selected<?php endif ?>>
