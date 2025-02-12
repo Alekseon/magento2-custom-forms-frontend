@@ -26,7 +26,7 @@
             </input>
         </div>
     <?php endforeach; ?>
+    <?php if ($note = $block->getNote()): ?>
+        <p id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>_note" class="note"><?= $escaper->escapeHtml($note) ?></p>
+    <?php endif ?>
 </div>
-<?php if ($note = $block->getNote()): ?>
-    <p id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>_note" class="note"><?= $escaper->escapeHtml($note) ?></p>
-<?php endif ?>
