@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.1.7] - 2025-02-12
+### ### Changed
+- Move note block inside control div (https://github.com/Alekseon/magento2-custom-forms-builder/issues/19)
+
 ## [100.1.6] - 2024-12-19
 ### Added
 - getEmptyOptionLabel method for select (it has empty value, but it can be changed by plugin)
