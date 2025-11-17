@@ -119,6 +119,7 @@
                         </item>
                         <item name="hidden" xsi:type="array">
                             <item name="label" xsi:type="string">Hidden</item>
+                            <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Form\Field\Hidden</item>
                             <item name="template" xsi:type="string">Alekseon_CustomFormsFrontend::form/field/hidden.phtml</item>
                         </item>
                         <item name="hidden_if_has_default_value" xsi:type="array">

@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [Unreleased] - 2025-11-17
+### Fixed
+- hide field label for hidden field types
+
 ## [100.1.7] - 2025-02-12
 ### ### Changed
 - Move note block inside control div (https://github.com/Alekseon/magento2-custom-forms-builder/issues/19)
