@@ -17,6 +17,7 @@
         cols="5"
         rows="3"
         class="<?= $escaper->escapeHtmlAttr($block->getValidationClass()) ?>"
+        placeholder="<?= $escaper->escapeHtmlAttr($block->getPlaceholder()) ?>"
         <?php if ($block->getMaxLength()): ?>
             maxlength="<?= $escaper->escapeHtmlAttr($block->getMaxLength()) ?>"
         <?php endif ?>
