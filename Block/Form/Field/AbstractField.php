@@ -163,7 +163,7 @@ class AbstractField extends \Magento\Framework\View\Element\Template implements 
      */
     public function getFieldClass()
     {
-        return $this->isRequired() ? 'required' : 'aaa';
+        return $this->isRequired() ? 'required' : '';
     }
 
     /**
