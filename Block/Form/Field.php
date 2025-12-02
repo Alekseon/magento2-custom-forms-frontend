@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Alekseon\CustomFormsFrontend\Block\Form;
 
 use Alekseon\AlekseonEav\Api\Data\AttributeInterface;
+use Alekseon\CustomFormsBuilder\Model\FormRecord\Attribute;
 use Alekseon\CustomFormsFrontend\Block\Form\Field\AbstractField;
 use Magento\Framework\View\Element\AbstractBlock;
 
@@ -42,6 +43,9 @@ class Field extends \Magento\Framework\View\Element\Template
     {
         $attribute = $this->getFormAttribute();
         if (!$attribute instanceof AttributeInterface) {
+            return;
+        }
+        if ($attribute->getInputVisibility() != Attribute::INPUT_VISIBILITY_VISIBILE) {
             return;
         }
 
