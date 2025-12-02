@@ -8,11 +8,13 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<div class="field <?= $escaper->escapeHtml($block->getInputBlock()->getFieldClass()) ?>">
-    <?php if ($block->getInputBlock() && $block->getInputBlock()->displayLabel()): ?>
-        <label class="label" for="<?= $escaper->escapeHtmlAttr($block->getInputBlock()->getId()) ?>">
-            <?= $escaper->escapeHtml($block->getInputBlock()->getLabel(), $block->getInputBlock()->getLabelAllowedTags()) ?>
-        </label>
-    <?php endif ?>
-    <?= $block->getChildHtml() ?>
-</div>
+<?php if ($block->getInputBlock()): ?>
+    <div class="field <?= $escaper->escapeHtml($block->getInputBlock()->getFieldClass()) ?>">
+        <?php if ($block->getInputBlock() && $block->getInputBlock()->displayLabel()): ?>
+            <label class="label" for="<?= $escaper->escapeHtmlAttr($block->getInputBlock()->getId()) ?>">
+                <?= $escaper->escapeHtml($block->getInputBlock()->getLabel(), $block->getInputBlock()->getLabelAllowedTags()) ?>
+            </label>
+        <?php endif ?>
+        <?= $block->getChildHtml() ?>
+    </div>
+<?php endif ?>
