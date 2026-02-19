@@ -180,7 +180,7 @@ class AbstractField extends \Magento\Framework\View\Element\Template implements 
      */
     public function getNote()
     {
-       return $this->getField()->getNote();
+        return $this->getField()->getFrontendNote();
     }
 
     /**
