@@ -10,7 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
-## [100.1.10] - 2026-12-19
+## [100.1.11] - 2026-02-15
+### Added
+- Clickable images
+
+## [100.1.10] - 2026-02-19
 ### Changed
 - use frontend notes for fields
 

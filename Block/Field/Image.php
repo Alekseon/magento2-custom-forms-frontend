@@ -59,5 +59,25 @@ class Image extends \Magento\Backend\Block\Template
 
         return $this->imageHelper->getUrl();
     }
+
+    /**
+     * @return false|string
+     * @throws \Magento\Framework\Exception\FileSystemException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getImageurl()
+    {
+        return $this->imageHelper->init($this->getFormRecord(), $this->getRecordAttribute()->getAttributeCode())
+            ->getUrl();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isClickable()
+    {
+        $parameters = $this->getParameters();
+        return (bool) ($parameters['clickable'] ?? false);
+    }
 }
 
