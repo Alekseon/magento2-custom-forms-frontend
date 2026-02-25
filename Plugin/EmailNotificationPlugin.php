@@ -80,7 +80,7 @@ class EmailNotificationPlugin
                         $recordHtml .= '<div class="form-record-row">';
                         $recordHtml .= '<strong>{{fieldLabel id="' . $attribute->getAttributeCode() . '" admin="1"}}</strong>';
                         $recordHtml .= ': ';
-                        $recordHtml .= '{{fieldValue id="' . $attribute->getAttributeCode() . '" admin="1"}}';
+                        $recordHtml .= $this->getFieldWidgetString($attribute);
                         $recordHtml .= '</div>';
                     }
                 }
@@ -91,5 +91,18 @@ class EmailNotificationPlugin
             $templateParams['recordHtml'] = $this->templateFilter->filter($recordHtml);
         }
         return $templateParams;
+    }
+
+    /**
+     * @param $attribute
+     * @return string
+     */
+    private function getFieldWidgetString(\Alekseon\AlekseonEav\Api\Data\AttributeInterface $attribute)
+    {
+        if ($attribute->getInputTypeModel()->getInputFieldType() == 'image') {
+            return '{{fieldValue id="' . $attribute->getAttributeCode() . '" admin="1" clickable="1"}}';
+        } else {
+            return '{{fieldValue id="' . $attribute->getAttributeCode() . '" admin="1"}}';
+        }
     }
 }
