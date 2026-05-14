@@ -18,6 +18,7 @@
                 id="<?= $escaper->escapeHtmlAttr($block->getId() . '-option-' . $optionId) ?>"
                 value="<?= $escaper->escapeHtmlAttr($optionId) ?>"
                 <?php if ($block->isSelected($optionId)): ?>checked<?php endif ?>
+                data-msg-required="<?= $escaper->escapeHtmlAttr(__('This field is required')) ?>"
                 data-validate=<?= $block->getDataValidateJson() ?>
             >
                 <label for="<?= $escaper->escapeHtmlAttr($block->getId() . '-option-' . $optionId) ?>">
