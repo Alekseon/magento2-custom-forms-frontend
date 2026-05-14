@@ -17,12 +17,13 @@
         cols="5"
         rows="3"
         class="<?= $escaper->escapeHtmlAttr($block->getValidationClass()) ?>"
+        placeholder="<?= $escaper->escapeHtmlAttr($block->getPlaceholder()) ?>"
         <?php if ($block->getMaxLength()): ?>
             maxlength="<?= $escaper->escapeHtmlAttr($block->getMaxLength()) ?>"
         <?php endif ?>
         data-validate=<?= $block->getDataValidateJson() ?>
     ><?= $escaper->escapeHtml($block->getDefaultValue()) ?></textarea>
+    <?php if ($note = $block->getNote()): ?>
+        <p id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>_note" class="note"><?= $escaper->escapeHtml($note) ?></p>
+    <?php endif ?>
 </div>
-<?php if ($note = $block->getNote()): ?>
-    <p id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>_note" class="note"><?= $escaper->escapeHtml($note) ?></p>
-<?php endif ?>

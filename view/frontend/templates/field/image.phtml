@@ -4,5 +4,15 @@
  * http://www.alekseon.com/
  */
 ?>
-<img src="<?= $block->escapeHtml($block->getImageThumbnailUrl()) ?>"/>
-
+<?php
+/** @var \Alekseon\CustomFormsFrontend\Block\Field\Image $block */
+?>
+<div>
+    <?php if ($block->isClickable()): ?>
+        <a href="<?= $block->escapeHtml($block->getImageUrl()) ?>" target="_blank">
+            <img src="<?= $block->escapeHtml($block->getImageThumbnailUrl()) ?>"/>
+        </a>
+    <?php else: ?>
+        <img src="<?= $block->escapeHtml($block->getImageThumbnailUrl()) ?>"/>
+    <?php endif ?>
+</div>

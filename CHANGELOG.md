@@ -10,6 +10,34 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.1.11] - 2026-02-15
+### Added
+- Clickable images
+
+## [100.1.10] - 2026-02-19
+### Changed
+- use frontend notes for fields
+
+## [100.1.9] - 2025-12-02
+### Added
+- check field visibility before display
+
+## [100.1.8] - 2025-11-17
+### Fixed
+- hide field label for hidden field types
+
+## [100.1.7] - 2025-02-12
+### ### Changed
+- Move note block inside control div (https://github.com/Alekseon/magento2-custom-forms-builder/issues/19)
+
+## [100.1.6] - 2024-12-19
+### Added
+- getEmptyOptionLabel method for select (it has empty value, but it can be changed by plugin)
+
+## [100.1.5] - 2024-11-28
+### Added
+- frontendBlock for date field
+
 ## [100.1.4] - 2024-11-17
 ### Added
 - changes for postal code validator
