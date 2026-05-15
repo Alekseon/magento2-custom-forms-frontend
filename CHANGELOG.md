@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.1.12] - 2026-05-15
+### Added
+- New attribute data-msg-required for radio button and checkbox
+
 ## [100.1.11] - 2026-02-15
 ### Added
 - Clickable images
