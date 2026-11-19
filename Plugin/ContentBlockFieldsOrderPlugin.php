@@ -24,6 +24,7 @@ class ContentBlockFieldsOrderPlugin
      * @param Form $result
      * @param DataForm $form
      * @return Form
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function afterSetForm(Form $subject, $result, DataForm $form)
     {
