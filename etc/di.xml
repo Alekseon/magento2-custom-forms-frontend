@@ -111,6 +111,61 @@
     <type name="Alekseon\AlekseonEav\Model\Attribute\InputTypeRepository">
         <arguments>
             <argument name="frontendInputTypes" xsi:type="array">
+                <item name="content_heading" xsi:type="array">
+                    <item name="label" xsi:type="string">Heading</item>
+                    <item name="is_input" xsi:type="boolean">false</item>
+                    <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\ContentBlockFactory</item>
+                    <item name="frontend_blocks" xsi:type="array">
+                        <item name="default" xsi:type="array">
+                            <item name="label" xsi:type="string">Heading</item>
+                            <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Form\Field\ContentBlock</item>
+                            <item name="template" xsi:type="string">Alekseon_CustomFormsFrontend::form/field/content/heading.phtml</item>
+                        </item>
+                    </item>
+                    <item name="input_params" xsi:type="array">
+                        <item name="content" xsi:type="array">
+                            <item name="label" xsi:type="string">Content</item>
+                            <item name="type" xsi:type="string">textarea</item>
+                        </item>
+                    </item>
+                </item>
+                <item name="content_text" xsi:type="array">
+                    <item name="label" xsi:type="string">Text</item>
+                    <item name="is_input" xsi:type="boolean">false</item>
+                    <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\ContentBlockFactory</item>
+                    <item name="frontend_blocks" xsi:type="array">
+                        <item name="default" xsi:type="array">
+                            <item name="label" xsi:type="string">Text</item>
+                            <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Form\Field\ContentBlock</item>
+                            <item name="template" xsi:type="string">Alekseon_CustomFormsFrontend::form/field/content/text.phtml</item>
+                        </item>
+                    </item>
+                    <item name="input_params" xsi:type="array">
+                        <item name="content" xsi:type="array">
+                            <item name="label" xsi:type="string">Content</item>
+                            <item name="type" xsi:type="string">textarea</item>
+                        </item>
+                    </item>
+                </item>
+                <item name="content_cms_block" xsi:type="array">
+                    <item name="label" xsi:type="string">CMS Block</item>
+                    <item name="is_input" xsi:type="boolean">false</item>
+                    <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\CmsBlockFactory</item>
+                    <item name="frontend_blocks" xsi:type="array">
+                        <item name="default" xsi:type="array">
+                            <item name="label" xsi:type="string">CMS Block</item>
+                            <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Form\Field\CmsBlock</item>
+                            <item name="template" xsi:type="string">Alekseon_CustomFormsFrontend::form/field/content/cms_block.phtml</item>
+                        </item>
+                    </item>
+                    <item name="input_params" xsi:type="array">
+                        <item name="cms_block_id" xsi:type="array">
+                            <item name="label" xsi:type="string">CMS Block</item>
+                            <item name="type" xsi:type="string">select</item>
+                            <item name="source_model" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Config\Source\CmsBlock</item>
+                        </item>
+                    </item>
+                </item>
                 <item name="text" xsi:type="array">
                     <item name="frontend_blocks" xsi:type="array">
                         <item name="default" xsi:type="array">

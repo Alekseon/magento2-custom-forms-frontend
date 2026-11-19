@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+
+/**
+ * Styles: Luma - _module.less, Hyva - Hyva_AlekseonWidgetForms widgetforms.css
+ *
+ * @var $block \Alekseon\CustomFormsFrontend\Block\Form\Field\ContentBlock
+ * @var $escaper \Magento\Framework\Escaper
+ */
+?>
+<?php if ($content = $block->getContent()): ?>
+    <h3 class="form-content-heading">
+        <?= $escaper->escapeHtml($content) ?>
+    </h3>
+<?php endif ?>

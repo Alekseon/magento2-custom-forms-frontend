@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.2.0] - 2026-11-19
+### Added
+- new field types "Heading" and "Text" (static content between form fields, no input)
+- new field type "CMS Block" (CMS block between form fields, no input)
+### Changed
+- _module.less moved from Alekseon_WidgetForms
+
 ## [100.1.12] - 2026-05-15
 ### Added
 - New attribute data-msg-required for radio button and checkbox

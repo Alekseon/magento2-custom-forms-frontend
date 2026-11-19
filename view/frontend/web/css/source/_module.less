@@ -1,0 +1,19 @@
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .control.multi-columns {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(6, auto);
+    column-gap: 10px;
+  }
+}
+
+& when (@media-common = true) {
+  // "Text / Heading" field type - same spacing for heading and text
+  .fieldset > .field.form-content-block {
+    margin: 20px 0 10px;
+
+    .form-content-heading {
+      margin: 0;
+    }
+  }
+}

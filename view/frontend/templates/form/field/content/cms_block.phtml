@@ -1,0 +1,13 @@
+<?php
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+
+/**
+ * @var $block \Alekseon\CustomFormsFrontend\Block\Form\Field\CmsBlock
+ */
+?>
+<?php if ($html = $block->getCmsBlockHtml()): ?>
+    <div class="form-content-cms-block"><?= /* @noEscape */ $html ?></div>
+<?php endif ?>

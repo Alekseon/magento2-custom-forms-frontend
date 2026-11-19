@@ -9,6 +9,7 @@
     <module name="Alekseon_CustomFormsFrontend">
         <sequence>
             <module name="Alekseon_CustomFormsBuilder"/>
+            <module name="Magento_Cms"/>
         </sequence>
     </module>
 </config>
