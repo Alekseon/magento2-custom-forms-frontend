@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 ### Fixed
 ### Added
+- Static Text, Static Heading and CMS Block field types
 ### Removed
 
 ## [100.1.12] - 2026-05-15
