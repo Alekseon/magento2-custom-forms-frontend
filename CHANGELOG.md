@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 ### Removed
 
+## [100.2.1] - 2026-11-20
+### Fixed
+- PHPMD: suppress unused $subject in plugin
+
 ## [100.2.0] - 2026-11-19
 ### Added
 - new field types "Heading" and "Text" (static content between form fields, no input)
