@@ -155,7 +155,7 @@ class AbstractField extends \Magento\Framework\View\Element\Template implements 
         if ($this->getField()->getIdentifier()) {
             $containerClass .= ' ' . $this->getField()->getIdentifier() . '-field-container';
         }
-        return $containerClass;
+        return (string) preg_replace('/[^a-zA-Z0-9_\- ]/', '', $containerClass);
     }
 
     /**

@@ -19,6 +19,22 @@ class StaticText extends \Alekseon\AlekseonEav\Model\Attribute\InputType\Abstrac
     protected $canDisplayInGrid = false;
 
     /**
+     * @return bool
+     */
+    public function hasFrontendLabel()
+    {
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function canBeRequired()
+    {
+        return false;
+    }
+
+    /**
      * @param $fieldConfig
      * @return StaticText
      */

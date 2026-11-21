@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [100.2.0]
 ### Changed
 ### Fixed
+- XSS: field container class (built from field identifier) is now escaped in templates and sanitized in `getContainerClass()`
+- `data-validate` attribute is now quoted and escaped in field templates
 ### Added
 - Static Text, Static Heading and CMS Block field types
+- static field types have no frontend label and cannot be required
 ### Removed
+- `FieldsetModifier` observer, label and is required are handled by CustomFormsBuilder
 
 ## [100.1.12] - 2026-05-15
 ### Added
