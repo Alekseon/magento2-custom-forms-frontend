@@ -4,11 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [100.2.0]
 ### Changed
 ### Fixed
 ### Added
+- Static Text, Static Heading and CMS Block field types
+- static field types have no frontend label and cannot be required
 ### Removed
+- `FieldsetModifier` observer, label and is required are handled by CustomFormsBuilder
+
+## [100.1.12] - 2026-05-15
+### Added
+- New attribute data-msg-required for radio button and checkbox
 
 ## [100.1.11] - 2026-02-15
 ### Added
