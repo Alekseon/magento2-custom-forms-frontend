@@ -9,14 +9,14 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<div class="control <?= $block->getContainerClass() ?>">
+<div class="control <?= $escaper->escapeHtmlAttr($block->getContainerClass()) ?>">
     <input
         name="<?= $escaper->escapeHtmlAttr($block->getName()) ?>"
         id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>"
         title="<?= $escaper->escapeHtmlAttr($block->getLabel()) ?>"
         type="date"
         placeholder="<?= $escaper->escapeHtmlAttr($block->getPlaceholder()) ?>"
-        data-validate=<?= $block->getDataValidateJson() ?>
+        data-validate="<?= $escaper->escapeHtmlAttr($block->getDataValidateJson()) ?>"
     />
     <?php if ($note = $block->getNote()): ?>
         <p id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>_note" class="note"><?= $escaper->escapeHtml($note) ?></p>
