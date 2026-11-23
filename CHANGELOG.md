@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [100.2.3] - 2026-11-23
+### Fixed
+- Luma styles for Static Text, Static Heading and CMS Block field types
+
 ## [100.2.0]
 ### Changed
 ### Fixed
