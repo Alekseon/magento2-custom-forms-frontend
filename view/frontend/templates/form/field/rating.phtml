@@ -9,7 +9,7 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<div class="control <?= $block->getContainerClass() ?>">
+<div class="control <?= $escaper->escapeHtmlAttr($block->getContainerClass()) ?>">
     <div class="field choice review-field-rating">
         <div class="control review-control-vote">
             <?php for ($i=6; $i>0; $i --): ?>
@@ -19,7 +19,7 @@
                     id="rate_<?= $escaper->escapeHtmlAttr($block->getId() . '_' . $i) ?>"
                     value="<?= $escaper->escapeHtmlAttr($i) ?>"
                     class="radio"
-                    data-validate=<?= $block->getDataValidateJson() ?>
+                    data-validate="<?= $escaper->escapeHtmlAttr($block->getDataValidateJson()) ?>"
                 />
                 <label
                     class="rating-<?= $escaper->escapeHtmlAttr($i) ?>"

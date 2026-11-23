@@ -206,6 +206,57 @@
                         </item>
                     </item>
                 </item>
+                <item name="static_text" xsi:type="array">
+                    <item name="label" xsi:type="string">Static Text</item>
+                    <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\StaticTextFactory</item>
+                    <item name="frontend_blocks" xsi:type="array">
+                        <item name="default" xsi:type="array">
+                            <item name="label" xsi:type="string">Default</item>
+                            <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Form\Field\StaticText</item>
+                        </item>
+                    </item>
+                    <item name="input_params" xsi:type="array">
+                        <item name="content" xsi:type="array">
+                            <item name="label" xsi:type="string">Content</item>
+                            <item name="type" xsi:type="string">textarea</item>
+                            <item name="note" xsi:type="string">Allowed HTML tags: 'b', 'strong', 'i', 'em', 'u', 'a', 'br'</item>
+                        </item>
+                    </item>
+                </item>
+                <item name="static_heading" xsi:type="array">
+                    <item name="label" xsi:type="string">Static Heading</item>
+                    <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\StaticTextFactory</item>
+                    <item name="frontend_blocks" xsi:type="array">
+                        <item name="default" xsi:type="array">
+                            <item name="label" xsi:type="string">Default</item>
+                            <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Form\Field\StaticText</item>
+                            <item name="template" xsi:type="string">Alekseon_CustomFormsFrontend::form/field/static_heading.phtml</item>
+                        </item>
+                    </item>
+                    <item name="input_params" xsi:type="array">
+                        <item name="content" xsi:type="array">
+                            <item name="label" xsi:type="string">Content</item>
+                            <item name="type" xsi:type="string">text</item>
+                        </item>
+                    </item>
+                </item>
+                <item name="cms_block" xsi:type="array">
+                    <item name="label" xsi:type="string">CMS Block</item>
+                    <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\CmsBlockFactory</item>
+                    <item name="frontend_blocks" xsi:type="array">
+                        <item name="default" xsi:type="array">
+                            <item name="label" xsi:type="string">Default</item>
+                            <item name="class" xsi:type="string">Alekseon\CustomFormsFrontend\Block\Form\Field\CmsBlock</item>
+                        </item>
+                    </item>
+                    <item name="input_params" xsi:type="array">
+                        <item name="cms_block_id" xsi:type="array">
+                            <item name="label" xsi:type="string">Cms Block</item>
+                            <item name="type" xsi:type="string">select</item>
+                            <item name="source_model" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Config\Source\CmsBlock</item>
+                        </item>
+                    </item>
+                </item>
             </argument>
         </arguments>
     </type>

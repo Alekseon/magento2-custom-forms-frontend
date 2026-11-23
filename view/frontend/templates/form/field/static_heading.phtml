@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+/**
+ * @var \Alekseon\CustomFormsFrontend\Block\Form\Field\StaticText $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php if ($content = $block->getContent()): ?>
+    <h3 class="form-content-heading">
+        <?= $escaper->escapeHtml($content) ?>
+    </h3>
+<?php endif ?>
+

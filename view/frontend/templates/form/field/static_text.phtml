@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Alekseon sp. z o.o.
+ * http://www.alekseon.com/
+ */
+/**
+ * @var \Alekseon\CustomFormsFrontend\Block\Form\Field\StaticText $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$allowedTags = ['b', 'strong', 'i', 'em', 'u', 'a', 'br'];
+?>
+<?php if ($content = $block->getContent()): ?>
+    <div class="form-content-text">
+        <?= /* @noEscape */ nl2br($escaper->escapeHtml($content, $allowedTags)) ?>
+    </div>
+<?php endif ?>
