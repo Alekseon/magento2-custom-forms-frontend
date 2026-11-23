@@ -9,7 +9,7 @@
  */
 ?>
 <?php if ($block->getInputBlock()): ?>
-    <div class="field <?= $escaper->escapeHtml($block->getInputBlock()->getFieldClass()) ?>">
+    <div class="field <?= $escaper->escapeHtmlAttr($block->getWidthClass()) ?> <?= $escaper->escapeHtml($block->getInputBlock()->getFieldClass()) ?>">
         <?php if ($block->getInputBlock() && $block->getInputBlock()->displayLabel()): ?>
             <label class="label" for="<?= $escaper->escapeHtmlAttr($block->getInputBlock()->getId()) ?>">
                 <?= $escaper->escapeHtml($block->getInputBlock()->getLabel(), $block->getInputBlock()->getLabelAllowedTags()) ?>

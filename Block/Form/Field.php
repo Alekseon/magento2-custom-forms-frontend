@@ -95,6 +95,21 @@ class Field extends \Magento\Framework\View\Element\Template
     }
 
     /**
+     * CSS class controlling field width in the form grid (Frontend View tab):
+     * field-width-25 | field-width-50 | field-width-75 | field-width-100
+     *
+     * TODO backend - this is a MOCK (always full width), replace it:
+     * read $this->getFormAttribute()->getAttributeExtraParam('frontend_width'),
+     * validate against allowed widths (25 | 50 | 75 | 100), default 100.
+     *
+     * @return string
+     */
+    public function getWidthClass(): string
+    {
+        return 'field-width-100';
+    }
+
+    /**
      * @inheritDoc
      */
     protected function _prepareLayout()
