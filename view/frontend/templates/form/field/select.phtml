@@ -9,12 +9,12 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<div class="control <?= $block->getContainerClass() ?>">
+<div class="control <?= $escaper->escapeHtmlAttr($block->getContainerClass()) ?>">
     <select
         name="<?= $escaper->escapeHtml($block->getName()) ?>"
         id="<?= $escaper->escapeHtml($block->getId()) ?>"
         title="<?= $escaper->escapeHtml($block->getLabel()) ?>"
-        data-validate=<?= $block->getDataValidateJson() ?>
+        data-validate="<?= $escaper->escapeHtmlAttr($block->getDataValidateJson()) ?>"
     >
         <?php if ($block->hasEmptyOption()): ?>
             <option value=""><?= $escaper->escapeHtmlAttr($block->getEmptyOptionLabel()) ?></option>

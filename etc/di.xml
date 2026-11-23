@@ -209,7 +209,6 @@
                 <item name="static_text" xsi:type="array">
                     <item name="label" xsi:type="string">Static Text</item>
                     <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\StaticTextFactory</item>
-                    <item name="fieldset_type" xsi:type="string">static_content</item>
                     <item name="frontend_blocks" xsi:type="array">
                         <item name="default" xsi:type="array">
                             <item name="label" xsi:type="string">Default</item>
@@ -227,7 +226,6 @@
                 <item name="static_heading" xsi:type="array">
                     <item name="label" xsi:type="string">Static Heading</item>
                     <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\StaticTextFactory</item>
-                    <item name="fieldset_type" xsi:type="string">static_heading</item>
                     <item name="frontend_blocks" xsi:type="array">
                         <item name="default" xsi:type="array">
                             <item name="label" xsi:type="string">Default</item>
@@ -245,7 +243,6 @@
                 <item name="cms_block" xsi:type="array">
                     <item name="label" xsi:type="string">CMS Block</item>
                     <item name="factory" xsi:type="object">Alekseon\CustomFormsFrontend\Model\Attribute\InputType\CmsBlockFactory</item>
-                    <item name="fieldset_type" xsi:type="string">cms_block</item>
                     <item name="frontend_blocks" xsi:type="array">
                         <item name="default" xsi:type="array">
                             <item name="label" xsi:type="string">Default</item>

@@ -9,12 +9,12 @@
  * @var $escaper \Magento\Framework\Escaper
  */
 ?>
-<div class="control <?= $block->getContainerClass() ?>">
+<div class="control <?= $escaper->escapeHtmlAttr($block->getContainerClass()) ?>">
     <select
         name="<?= $escaper->escapeHtmlAttr($block->getName()) ?>[]"
         id="<?= $escaper->escapeHtmlAttr($block->getId()) ?>"
         title="<?= $escaper->escapeHtmlAttr($block->getLabel()) ?>"
-        data-validate=<?= $block->getDataValidateJson() ?>
+        data-validate="<?= $escaper->escapeHtmlAttr($block->getDataValidateJson()) ?>"
         multiple
     >
         <option value=""></option>
